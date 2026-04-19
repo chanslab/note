@@ -5,5 +5,5 @@
   "newFileFolderPath": "100.Income",
   "alwaysUpdateLinks": true,
   "readableLineLength": true,
-  "propertiesInDocument": "hidden"
+  "propertiesInDocument": "visible"
 }
