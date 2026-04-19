@@ -1,0 +1,9 @@
+{
+  "promptDelete": false,
+  "newFileLocation": "folder",
+  "attachmentFolderPath": "Attachment",
+  "newFileFolderPath": "100.Income",
+  "alwaysUpdateLinks": true,
+  "readableLineLength": true,
+  "propertiesInDocument": "hidden"
+}

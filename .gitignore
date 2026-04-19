@@ -1,0 +1,18 @@
+# Obsidian 관련 기기별 설정 제외
+.obsidian/workspace
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+
+# 플러그인 캐시 및 로그
+.obsidian/plugins/*/data.json
+.obsidian/plugins/obsidian-git/data.json
+
+# OS 생성 파일
+.DS_Store
+Thumbs.db
+
+# 충돌 파일 (Sync 충돌 시 발생하는 임시 파일들)
+*.sync-conflict-*
+
+# Directory
+800.Reference/

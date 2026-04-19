@@ -1,0 +1,30 @@
+{
+  "collapse-filter": false,
+  "search": "",
+  "showTags": true,
+  "showAttachments": true,
+  "hideUnresolved": true,
+  "showOrphans": true,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "tag:#노트구조  ",
+      "color": {
+        "a": 1,
+        "rgb": 14701138
+      }
+    }
+  ],
+  "collapse-display": false,
+  "showArrow": true,
+  "textFadeMultiplier": -0.2,
+  "nodeSizeMultiplier": 1.92367621527778,
+  "lineSizeMultiplier": 1.82116753472222,
+  "collapse-forces": false,
+  "centerStrength": 0.518713248970312,
+  "repelStrength": 10,
+  "linkStrength": 1,
+  "linkDistance": 250,
+  "scale": 0.944177698783056,
+  "close": false
+}

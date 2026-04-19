@@ -1,0 +1,16 @@
+{
+  "types": {
+    "aliases": "aliases",
+    "cssclasses": "multitext",
+    "tags": "tags",
+    "카테고리": "multitext",
+    "페이지수": "number",
+    "읽음 여부": "checkbox",
+    "출간일": "date",
+    "노트 생성 시각": "datetime",
+    "도서형태": "multitext",
+    "도서가격": "number",
+    "e-book": "checkbox",
+    "부제": "text"
+  }
+}

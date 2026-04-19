@@ -1,0 +1,34 @@
+{
+  "periodic-notes:open-daily-note": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "1"
+    }
+  ],
+  "periodic-notes:open-monthly-note": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "2"
+    }
+  ],
+  "periodic-notes:next-weekly-note": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "3"
+    }
+  ],
+  "periodic-notes:next-yearly-note": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "4"
+    }
+  ]
+}
