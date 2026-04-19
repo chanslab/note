@@ -38,3 +38,41 @@
     background-color: rgba(255, 255, 255, 0.05);
     color: #e0e0e0;
 }
+
+/* Heading */
+/* Things 테마 헤딩 단계별 색상 커스텀 (차분한 다크 모드) */
+
+.theme-dark .markdown-rendered h1, .theme-dark .cm-header-1 {
+    color: #b8c0e0; /* 부드러운 블루 그레이 - 메인 제목 */
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.theme-dark .markdown-rendered h2, .theme-dark .cm-header-2 {
+    color: #a5adcb; /* 차분한 실버 블루 - 대분류 */
+    font-weight: 700;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* 은은한 하단 구분선 */
+    padding-bottom: 3px;
+}
+
+.theme-dark .markdown-rendered h3, .theme-dark .cm-header-3 {
+    color: #939ab7; /* 톤다운된 보라빛 그레이 - 중분류 */
+    font-weight: 700;
+}
+
+.theme-dark .markdown-rendered h4, .theme-dark .cm-header-4 {
+    color: #8aadf4; /* 흐린 스카이 블루 - 소분류 */
+    font-weight: 600;
+}
+
+.theme-dark .markdown-rendered h5, .theme-dark .cm-header-5 {
+    color: #8bd5ca; /* 민트 뉘앙스의 그레이 - 세부 항목 */
+    font-weight: 600;
+}
+
+.theme-dark .markdown-rendered h6, .theme-dark .cm-header-6 {
+    color: #ee99a0; /* 톤다운된 로즈 - 보조 항목 */
+    font-weight: 600;
+    font-style: italic; /* H6는 살짝 기울여서 구분감을 줌 */
+}
+
