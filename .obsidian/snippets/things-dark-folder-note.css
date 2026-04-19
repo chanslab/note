@@ -39,39 +39,3 @@
     color: #e0e0e0;
 }
 
-/* Things 테마 전용: 차분한 블루 뮤트톤 헤딩 설정
-   작성일: 2026-04-19
-*/
-
-/* 1. 편집 모드 & 읽기 모드 통합 설정 */
-.theme-dark {
-    /* H1: 가장 밝고 부드러운 스카이 블루 */
-    --h1-color: #B1C9EF;
-    /* H2: 차분하고 톤다운된 스틸 블루 */
-    --h2-color: #8E9AAF;
-    /* H3: 깊이감이 느껴지는 미디엄 그레이 블루 */
-    --h3-color: #718096;
-    /* H4: 보라빛이 살짝 감도는 뮤트 블루 */
-    --h4-color: #6272A4;
-    /* H5: 묵직하고 어두운 다크 블루 그레이 */
-    --h5-color: #4A5568;
-    /* H6: 아주 연한 그레이 블루 (보조용) */
-    --h6-color: #CBD5E0;
-}
-
-/* 2. 각 헤딩별 폰트 스타일 적용 */
-.markdown-rendered h1, .cm-header-1 { color: var(--h1-color) !important; font-weight: 800; }
-.markdown-rendered h2, .cm-header-2 { color: var(--h2-color) !important; font-weight: 700; }
-.markdown-rendered h3, .cm-header-3 { color: var(--h3-color) !important; font-weight: 700; }
-.markdown-rendered h4, .cm-header-4 { color: var(--h4-color) !important; font-weight: 600; }
-.markdown-rendered h5, .cm-header-5 { color: var(--h5-color) !important; font-weight: 600; }
-.markdown-rendered h6, .cm-header-6 { color: var(--h6-color) !important; font-weight: 600; font-style: italic; }
-
-/* 3. 시인성을 위한 H2 하단 보조선 (선택 사항) */
-.markdown-rendered h2 {
-    border-bottom: 1px solid rgba(142, 154, 175, 0.15);
-    padding-bottom: 4px;
-    margin-top: 1.5em;
-}
-
-
