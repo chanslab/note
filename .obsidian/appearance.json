@@ -4,7 +4,5 @@
   "textFontFamily": "",
   "baseFontSize": 15,
   "baseFontSizeAction": true,
-  "enabledCssSnippets": [
-    "things-dark-folder-note"
-  ]
+  "enabledCssSnippets": []
 }

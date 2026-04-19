@@ -1,59 +1,40 @@
-thin/* =========================
-   Things Theme - Dark Mode
-   Folder / Note color split
-   ========================= */
-
-/* 폴더 전체 제목 줄 */
-.nav-folder .nav-folder-title {
-  border-radius: 6px;
-  padding-left: 4px;
+/* 1. 폴더 아이콘과 이름 색상 강조 (노트와 구분) */
+.theme-dark .nav-folder-title {
+    color: #999999; /* 기본 폴더 색상 */
+    font-weight: 600;
 }
 
-/* 폴더 이름 */
-.nav-folder .nav-folder-title-content {
-  color: #7aa2f7 !important;   /* 차분한 블루 */
-  font-weight: 600;
+/* 폴더가 열려있을 때 아이콘 색상 변경 */
+.theme-dark .is-collapsed .nav-folder-collapse-indicator {
+    color: #666666;
 }
 
-/* 폴더 아이콘 */
-.nav-folder .nav-folder-title svg {
-  color: #7aa2f7 !important;
+/* 2. 일반 노트(파일) 색상 설정 */
+.theme-dark .nav-file-title {
+    color: #b0b0b0; /* 폴더보다 조금 더 밝은 회색 */
 }
 
-/* 폴더 hover */
-.nav-folder .nav-folder-title:hover {
-  background-color: rgba(122, 162, 247, 0.10) !important;
+/* 3. 현재 열려있는 활성 노트(Active File) 강조 */
+.theme-dark .nav-file-title.is-active {
+    background-color: rgba(255, 255, 255, 0.1) !important; /* 배경에 살짝 하이라이트 */
+    color: #ffffff !important; /* 텍스트를 흰색으로 */
+    font-weight: 700;
+    border-radius: 4px;
 }
 
-/* 열려 있는 폴더 */
-.nav-folder.is-collapsed .nav-folder-title-content {
-  color: #7aa2f7 !important;
+/* 활성 노트 왼쪽 포인트 라인 (선택 사항) */
+.theme-dark .nav-file-title.is-active::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: var(--interactive-accent); /* 테마 기본 강조색 사용 */
 }
 
-/* 노트 제목 */
-.nav-file .nav-file-title-content {
-  color: #c8ccd4 !important;   /* 밝은 회색 */
-  font-weight: 400;
-}
-
-/* 노트 아이콘 */
-.nav-file .nav-file-title svg {
-  color: #8b949e !important;
-}
-
-/* 노트 hover */
-.nav-file .nav-file-title:hover {
-  background-color: rgba(255, 255, 255, 0.04) !important;
-  border-radius: 6px;
-}
-
-/* 활성화된 노트 */
-.nav-file.is-active .nav-file-title {
-  background-color: rgba(122, 162, 247, 0.14) !important;
-  border-radius: 6px;
-}
-
-.nav-file.is-active .nav-file-title-content {
-  color: #dbe6ff !important;
-  font-weight: 500;
+/* 4. 마우스 호버(Hover) 시 효과 */
+.theme-dark .nav-file-title:hover, 
+.theme-dark .nav-folder-title:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #e0e0e0;
 }
