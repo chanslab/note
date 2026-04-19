@@ -3,5 +3,8 @@
   "theme": "obsidian",
   "textFontFamily": "",
   "baseFontSize": 15,
-  "baseFontSizeAction": true
+  "baseFontSizeAction": true,
+  "enabledCssSnippets": [
+    "things-dark-folder-note"
+  ]
 }

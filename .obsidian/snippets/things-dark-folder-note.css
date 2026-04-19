@@ -1,0 +1,59 @@
+thin/* =========================
+   Things Theme - Dark Mode
+   Folder / Note color split
+   ========================= */
+
+/* 폴더 전체 제목 줄 */
+.nav-folder .nav-folder-title {
+  border-radius: 6px;
+  padding-left: 4px;
+}
+
+/* 폴더 이름 */
+.nav-folder .nav-folder-title-content {
+  color: #7aa2f7 !important;   /* 차분한 블루 */
+  font-weight: 600;
+}
+
+/* 폴더 아이콘 */
+.nav-folder .nav-folder-title svg {
+  color: #7aa2f7 !important;
+}
+
+/* 폴더 hover */
+.nav-folder .nav-folder-title:hover {
+  background-color: rgba(122, 162, 247, 0.10) !important;
+}
+
+/* 열려 있는 폴더 */
+.nav-folder.is-collapsed .nav-folder-title-content {
+  color: #7aa2f7 !important;
+}
+
+/* 노트 제목 */
+.nav-file .nav-file-title-content {
+  color: #c8ccd4 !important;   /* 밝은 회색 */
+  font-weight: 400;
+}
+
+/* 노트 아이콘 */
+.nav-file .nav-file-title svg {
+  color: #8b949e !important;
+}
+
+/* 노트 hover */
+.nav-file .nav-file-title:hover {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+  border-radius: 6px;
+}
+
+/* 활성화된 노트 */
+.nav-file.is-active .nav-file-title {
+  background-color: rgba(122, 162, 247, 0.14) !important;
+  border-radius: 6px;
+}
+
+.nav-file.is-active .nav-file-title-content {
+  color: #dbe6ff !important;
+  font-weight: 500;
+}
