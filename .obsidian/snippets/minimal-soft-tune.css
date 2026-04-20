@@ -1,6 +1,5 @@
 /* =========================================================
-   Obsidian Minimal Theme - Dark Mode CSS v2
-   Authoring target:
+   Obsidian Minimal Theme - Dark Mode CSS v3
    - Minimal theme only
    - Dark mode only
    - macOS / Windows / Android
@@ -39,14 +38,14 @@
   --line-mid: rgba(167, 192, 217, 0.18);
   --line-strong: rgba(167, 192, 217, 0.26);
 
-  --hover-bg: rgba(149, 177, 202, 0.14);
+  --hover-bg: rgba(149, 177, 202, 0.18);
   --active-bg: rgba(149, 177, 202, 0.22);
   --open-bg: rgba(127, 155, 184, 0.18);
   --tab-active-bg: rgba(149, 177, 202, 0.12);
 
-  --folder-color: #88a8c7;
-  --folder-color-2: #7e9dbc;
-  --folder-color-3: #7291af;
+  --folder-color: #97b5d2;
+  --folder-color-2: #86a5c3;
+  --folder-color-3: #7595b4;
   --note-color: #d4deea;
   --note-muted: #b4c2d0;
 
@@ -61,7 +60,17 @@
   --blockquote-bg: rgba(149, 177, 202, 0.08);
 
   --code-bg: #111820;
-  --code-border: rgba(167, 192, 217, 0.12);
+  --code-border: rgba(167, 192, 217, 0.14);
+
+  --panel-bg-1: rgba(149, 177, 202, 0.055);
+  --panel-bg-2: rgba(149, 177, 202, 0.085);
+  --panel-bg-3: rgba(149, 177, 202, 0.11);
+
+  --panel-border-1: rgba(167, 192, 217, 0.16);
+  --panel-border-2: rgba(167, 192, 217, 0.24);
+
+  --panel-shadow-1: inset 0 1px 0 rgba(255,255,255,0.025);
+  --panel-shadow-2: 0 0 0 1px rgba(255,255,255,0.012);
 
   --radius-sm: 6px;
   --radius-md: 8px;
@@ -100,7 +109,6 @@ body,
   color: var(--text-main);
 }
 
-/* 코드 계열 */
 code,
 pre,
 .cm-inline-code,
@@ -113,7 +121,7 @@ pre,
 }
 
 /* ---------------------------------------------------------
-   3. Global background polish
+   3. Global background
    --------------------------------------------------------- */
 .theme-dark,
 .theme-dark .workspace,
@@ -136,7 +144,6 @@ pre,
 
 /* ---------------------------------------------------------
    4. Readable line width - desktop only
-   About 10% wider
    --------------------------------------------------------- */
 @media (min-width: 1025px) {
   .markdown-source-view.mod-cm6.is-readable-line-width .cm-contentContainer,
@@ -145,7 +152,6 @@ pre,
   }
 }
 
-/* 모바일은 기본 폭 유지 */
 @media (max-width: 1024px) {
   .markdown-source-view.mod-cm6.is-readable-line-width .cm-contentContainer,
   .markdown-preview-view.is-readable-line-width .markdown-preview-sizer {
@@ -164,7 +170,6 @@ pre,
   border-left: 1px solid var(--line-soft);
 }
 
-/* 탐색기 기본 */
 .nav-files-container,
 .workspace-leaf-content[data-type="file-explorer"] .view-content {
   background: linear-gradient(
@@ -174,7 +179,6 @@ pre,
   );
 }
 
-/* 폴더 */
 .nav-folder-title,
 .tree-item-self.nav-folder-title {
   color: var(--folder-color);
@@ -184,7 +188,6 @@ pre,
   padding-bottom: 2px;
 }
 
-/* 노트 */
 .nav-file-title,
 .tree-item-self.nav-file-title {
   color: var(--note-color);
@@ -193,7 +196,6 @@ pre,
   padding-bottom: 2px;
 }
 
-/* 깊이별 폴더 색상 */
 .tree-item-children .nav-folder-title,
 .tree-item-children .tree-item-self.nav-folder-title {
   color: var(--folder-color-2);
@@ -204,7 +206,6 @@ pre,
   color: var(--folder-color-3);
 }
 
-/* hover */
 .nav-folder-title:hover,
 .nav-file-title:hover,
 .tree-item-self:hover {
@@ -212,37 +213,46 @@ pre,
   color: #eef4fa !important;
 }
 
-/* active/open/current */
 .nav-file-title.is-active,
 .tree-item-self.is-active,
 .workspace-leaf.mod-active .nav-file-title.is-active {
-  background-color: var(--active-bg) !important;
-  color: #f4f8fc !important;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(167, 192, 217, 0.18) 0%,
+      rgba(149, 177, 202, 0.16) 100%
+    ) !important;
+  color: #f7fbff !important;
   font-weight: 650;
+  box-shadow:
+    inset 0 0 0 1px rgba(167, 192, 217, 0.10),
+    0 0 0 1px rgba(255,255,255,0.01);
 }
 
-/* 선택된 파일 왼쪽 인디케이터 */
 .nav-file-title.is-active::before,
 .tree-item-self.nav-file-title.is-active::before {
   content: "";
   position: absolute;
   left: 4px;
   top: 18%;
-  width: 3px;
+  width: 4px;
   height: 64%;
   border-radius: 999px;
-  background: var(--blue-2);
+  background: linear-gradient(
+    180deg,
+    #bfd4e8 0%,
+    #98b7d4 100%
+  );
 }
 
-/* 폴더 열림 상태 */
 .tree-item.nav-folder:not(.is-collapsed) > .tree-item-self.nav-folder-title {
   background-color: rgba(149, 177, 202, 0.08);
 }
 
-/* 폴더 hover 시 화살표 포함 자연스럽게 */
 .tree-item-icon {
   color: var(--text-muted);
 }
+
 .tree-item-self:hover .tree-item-icon {
   color: var(--blue-2);
 }
@@ -292,34 +302,22 @@ pre,
    7. Headings
    --------------------------------------------------------- */
 .markdown-rendered h1,
-.cm-header-1 {
-  color: var(--h1-color) !important;
-}
+.cm-header-1 { color: var(--h1-color) !important; }
 
 .markdown-rendered h2,
-.cm-header-2 {
-  color: var(--h2-color) !important;
-}
+.cm-header-2 { color: var(--h2-color) !important; }
 
 .markdown-rendered h3,
-.cm-header-3 {
-  color: var(--h3-color) !important;
-}
+.cm-header-3 { color: var(--h3-color) !important; }
 
 .markdown-rendered h4,
-.cm-header-4 {
-  color: var(--h4-color) !important;
-}
+.cm-header-4 { color: var(--h4-color) !important; }
 
 .markdown-rendered h5,
-.cm-header-5 {
-  color: var(--h5-color) !important;
-}
+.cm-header-5 { color: var(--h5-color) !important; }
 
 .markdown-rendered h6,
-.cm-header-6 {
-  color: var(--h6-color) !important;
-}
+.cm-header-6 { color: var(--h6-color) !important; }
 
 .markdown-rendered h1,
 .markdown-rendered h2,
@@ -334,15 +332,19 @@ pre,
 .markdown-rendered h1 {
   border-bottom: 1px solid rgba(167, 192, 217, 0.18);
   padding-bottom: 0.18em;
+  margin-top: 1.6em;
 }
 
 .markdown-rendered h2 {
   border-bottom: 1px solid rgba(167, 192, 217, 0.10);
   padding-bottom: 0.12em;
+  margin-top: 1.45em;
 }
 
+.markdown-rendered h3 { margin-top: 1.3em; }
+
 /* ---------------------------------------------------------
-   8. Body text / links / emphasis
+   8. Body text / spacing / links / emphasis
    --------------------------------------------------------- */
 .markdown-rendered,
 .cm-content {
@@ -352,8 +354,25 @@ pre,
 .markdown-rendered p,
 .markdown-rendered li,
 .markdown-rendered blockquote,
+.markdown-rendered table,
+.markdown-rendered .callout-content,
 .cm-content {
-  line-height: 1.72;
+  line-height: 1.58 !important;
+}
+
+.markdown-rendered ul > li,
+.markdown-rendered ol > li {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+.markdown-rendered h1 + p,
+.markdown-rendered h2 + p,
+.markdown-rendered h3 + p,
+.markdown-rendered h4 + p,
+.markdown-rendered h5 + p,
+.markdown-rendered h6 + p {
+  margin-top: 0.35em;
 }
 
 .markdown-rendered strong,
@@ -386,9 +405,17 @@ pre,
 }
 
 .markdown-rendered blockquote {
-  background: var(--blockquote-bg);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(149, 177, 202, 0.10) 0%,
+      rgba(149, 177, 202, 0.045) 100%
+    );
   border-left: 3px solid var(--blockquote-border);
+  border: 1px solid rgba(167, 192, 217, 0.22);
+  border-left-width: 3px;
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  box-shadow: var(--panel-shadow-1), var(--panel-shadow-2);
   padding: 0.7em 1em;
   color: var(--text-normal);
 }
@@ -401,6 +428,9 @@ pre,
 .markdown-rendered table {
   border-collapse: collapse;
   width: 100%;
+  border: 1px solid rgba(167, 192, 217, 0.18);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
 }
 
 .markdown-rendered th,
@@ -410,8 +440,17 @@ pre,
 }
 
 .markdown-rendered th {
-  background-color: rgba(149, 177, 202, 0.08);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(149, 177, 202, 0.12) 0%,
+      rgba(149, 177, 202, 0.08) 100%
+    );
   color: #e4edf6;
+}
+
+.markdown-rendered td {
+  background-color: rgba(255,255,255,0.015);
 }
 
 /* ---------------------------------------------------------
@@ -426,10 +465,15 @@ pre,
   padding: 0.12em 0.34em;
 }
 
-.markdown-rendered pre {
-  background-color: var(--code-bg) !important;
-  border: 1px solid var(--code-border);
+.markdown-rendered pre,
+.HyperMD-codeblock,
+.cm-s-obsidian .HyperMD-codeblock {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00)),
+    var(--code-bg) !important;
+  border: 1px solid rgba(167, 192, 217, 0.18);
   border-radius: var(--radius-lg);
+  box-shadow: var(--panel-shadow-1), var(--panel-shadow-2);
   padding: 14px 16px;
 }
 
@@ -438,16 +482,85 @@ pre,
    --------------------------------------------------------- */
 .callout {
   border-radius: var(--radius-lg);
-  border: 1px solid var(--line-soft);
-  background-color: rgba(149, 177, 202, 0.06);
+  border: 1px solid rgba(167, 192, 217, 0.24);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(149, 177, 202, 0.12) 0%,
+      rgba(149, 177, 202, 0.07) 100%
+    );
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.025),
+    0 0 0 1px rgba(255,255,255,0.01);
+  padding-top: 2px;
 }
 
 .callout-title {
   color: #e6eff8;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.025) 0%,
+      rgba(255,255,255,0.01) 100%
+    );
+  border-bottom: 1px solid rgba(167, 192, 217, 0.12);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  padding-top: 0.55rem;
+  padding-bottom: 0.45rem;
+  padding-left: 0.85rem;
+  padding-right: 0.85rem;
 }
 
 .callout-content {
   color: var(--text-main);
+  padding-top: 0.35rem;
+}
+
+.callout-title-inner {
+  color: #edf4fb;
+  font-weight: 650;
+}
+
+.callout-icon svg {
+  color: #adc7de;
+}
+
+.callout[data-callout="note"],
+.callout[data-callout="abstract"],
+.callout[data-callout="summary"],
+.callout[data-callout="info"],
+.callout[data-callout="todo"],
+.callout[data-callout="tip"],
+.callout[data-callout="important"] {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(149, 177, 202, 0.11) 0%,
+      rgba(149, 177, 202, 0.06) 100%
+    );
+}
+
+.callout[data-callout="warning"],
+.callout[data-callout="caution"],
+.callout[data-callout="attention"] {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(170, 150, 120, 0.14) 0%,
+      rgba(149, 177, 202, 0.05) 100%
+    );
+}
+
+.callout[data-callout="danger"],
+.callout[data-callout="error"],
+.callout[data-callout="bug"],
+.callout[data-callout="fail"] {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(150, 110, 120, 0.15) 0%,
+      rgba(149, 177, 202, 0.04) 100%
+    );
 }
 
 /* ---------------------------------------------------------
@@ -465,10 +578,17 @@ select {
 .prompt-input,
 input[type="text"],
 textarea {
-  background-color: var(--bg-2);
-  border: 1px solid var(--line-soft);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.018) 0%,
+      rgba(255,255,255,0.01) 100%
+    ),
+    var(--bg-2);
+  border: 1px solid rgba(167, 192, 217, 0.16);
   color: var(--text-main);
   border-radius: var(--radius-md);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.015);
 }
 
 .search-input-container input:focus,
@@ -477,12 +597,13 @@ textarea {
 input[type="text"]:focus,
 textarea:focus {
   border-color: var(--line-strong);
-  box-shadow: 0 0 0 1px rgba(167, 192, 217, 0.16);
+  box-shadow:
+    0 0 0 1px rgba(167, 192, 217, 0.16),
+    inset 0 1px 0 rgba(255,255,255,0.02);
 }
 
 /* ---------------------------------------------------------
-   13. Spellcheck red underline remove
-   Best: also disable Spellcheck in settings
+   13. Spellcheck underline remove
    --------------------------------------------------------- */
 .cm-misspelling,
 .markdown-source-view.mod-cm6 .cm-misspelling,
@@ -493,7 +614,6 @@ textarea:focus {
   box-shadow: none !important;
 }
 
-/* 브라우저/웹뷰 계열 밑줄 대응 */
 .cm-editor span[spellcheck],
 .markdown-source-view span[spellcheck] {
   text-decoration: none !important;
@@ -502,16 +622,11 @@ textarea:focus {
 
 /* ---------------------------------------------------------
    14. Mermaid
-   Requirement:
-   - shape: near white
-   - text : black-ish
-   - edge : black-ish
    --------------------------------------------------------- */
 .theme-dark .mermaid svg {
   background: transparent !important;
 }
 
-/* 노드 계열 */
 .theme-dark .mermaid .node rect,
 .theme-dark .mermaid .node circle,
 .theme-dark .mermaid .node ellipse,
@@ -524,7 +639,6 @@ textarea:focus {
   stroke-width: 1.2px !important;
 }
 
-/* 글자 */
 .theme-dark .mermaid .label,
 .theme-dark .mermaid .label text,
 .theme-dark .mermaid .nodeLabel,
@@ -535,7 +649,6 @@ textarea:focus {
   fill: #111111 !important;
 }
 
-/* edge / arrow */
 .theme-dark .mermaid .edgePath path,
 .theme-dark .mermaid .flowchart-link,
 .theme-dark .mermaid .arrowheadPath,
@@ -546,14 +659,12 @@ textarea:focus {
   stroke-width: 1.2px !important;
 }
 
-/* edge label background */
 .theme-dark .mermaid .edgeLabel,
 .theme-dark .mermaid .edgeLabel rect {
   background-color: #f4f6f8 !important;
   fill: #f4f6f8 !important;
 }
 
-/* sequence diagram / gantt / actor */
 .theme-dark .mermaid .actor,
 .theme-dark .mermaid .actor-line,
 .theme-dark .mermaid .section,
@@ -592,48 +703,95 @@ textarea:focus {
    16. Properties / metadata
    --------------------------------------------------------- */
 .metadata-container {
-  border: 1px solid var(--line-soft);
+  border: 1px solid rgba(167, 192, 217, 0.24);
   border-radius: var(--radius-lg);
-  padding: 10px 12px;
-  background-color: rgba(149, 177, 202, 0.04);
+  padding: 12px 14px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(149, 177, 202, 0.10) 0%,
+      rgba(149, 177, 202, 0.055) 100%
+    );
+  box-shadow: var(--panel-shadow-1), var(--panel-shadow-2);
+}
+
+.metadata-property {
+  border-top: 1px solid rgba(167, 192, 217, 0.10);
+  padding-top: 8px;
+  padding-bottom: 8px;
+  gap: 10px;
+}
+
+.metadata-property:first-child {
+  border-top: none;
 }
 
 .metadata-property-key {
-  color: var(--blue-2);
+  color: #b0c9df;
+  font-weight: 650;
+  letter-spacing: 0.01em;
 }
 
 .metadata-property-value {
-  color: var(--text-main);
+  color: #e0e9f2;
+}
+
+.metadata-input,
+.metadata-input-longtext,
+.metadata-property-value input,
+.metadata-property-value textarea {
+  background-color: rgba(16, 22, 29, 0.55) !important;
+  border: 1px solid rgba(167, 192, 217, 0.14) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
 }
 
 /* ---------------------------------------------------------
-   17. Mobile tuning
+   17. Embedded note / transclusion / internal panels
    --------------------------------------------------------- */
-@media (max-width: 768px) {
-  .markdown-rendered p,
-  .markdown-rendered li,
-  .markdown-rendered blockquote,
-  .cm-content {
-    line-height: 1.65;
-  }
+.internal-embed,
+.markdown-embed,
+.file-embed,
+.media-embed,
+.embed-title,
+.workspace-leaf-content[data-type="backlink"] .view-content {
+  border-radius: var(--radius-lg);
+}
 
-  .workspace-tab-header-inner-title {
-    font-size: 0.92rem;
-  }
+.markdown-embed,
+.internal-embed {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(149, 177, 202, 0.075) 0%,
+      rgba(149, 177, 202, 0.035) 100%
+    );
+  border: 1px solid rgba(167, 192, 217, 0.18);
+  box-shadow: var(--panel-shadow-1), var(--panel-shadow-2);
+}
 
-  .nav-folder-title,
-  .nav-file-title,
-  .tree-item-self {
-    border-radius: 7px;
-  }
-
-  .markdown-rendered pre {
-    padding: 12px 12px;
-  }
+.markdown-embed-title {
+  color: #b3cae0;
+  border-bottom: 1px solid rgba(167, 192, 217, 0.08);
+  background-color: rgba(255,255,255,0.02);
 }
 
 /* ---------------------------------------------------------
-   18. Optional polish for Minimal aesthetics
+   18. Admonition-like boxes from plugins
+   --------------------------------------------------------- */
+.admonition,
+.block-language-ad-note,
+.block-language-ad-info,
+.block-language-ad-tip,
+.block-language-ad-warning,
+.block-language-ad-danger {
+  border: 1px solid var(--panel-border-2);
+  border-radius: var(--radius-lg);
+  background: var(--panel-bg-2);
+  box-shadow: var(--panel-shadow-1), var(--panel-shadow-2);
+}
+
+/* ---------------------------------------------------------
+   19. Minimal aesthetics polish
    --------------------------------------------------------- */
 .view-header {
   border-bottom: 1px solid var(--line-soft);
@@ -657,249 +815,29 @@ textarea:focus {
   border-radius: var(--radius-sm);
 }
 
- /* =========================================================
-   v2.2 fine tuning patch
-   append this at the very bottom of minimal-dark-blue-v2.css
-   ========================================================= */
-
 /* ---------------------------------------------------------
-   1. Box separation a little clearer, still soft
-   --------------------------------------------------------- */
-.theme-dark {
-  --panel-bg-1: rgba(149, 177, 202, 0.055);
-  --panel-bg-2: rgba(149, 177, 202, 0.085);
-  --panel-bg-3: rgba(149, 177, 202, 0.11);
-
-  --panel-border-1: rgba(167, 192, 217, 0.16);
-  --panel-border-2: rgba(167, 192, 217, 0.24);
-
-  --panel-shadow-1: inset 0 1px 0 rgba(255,255,255,0.025);
-  --panel-shadow-2: 0 0 0 1px rgba(255,255,255,0.012);
-}
-
-/* ---------------------------------------------------------
-   2. Current note / active item a bit clearer
-   --------------------------------------------------------- */
-.nav-file-title.is-active,
-.tree-item-self.is-active,
-.workspace-leaf.mod-active .nav-file-title.is-active {
-  background:
-    linear-gradient(
-      90deg,
-      rgba(167, 192, 217, 0.18) 0%,
-      rgba(149, 177, 202, 0.16) 100%
-    ) !important;
-  color: #f7fbff !important;
-  box-shadow:
-    inset 0 0 0 1px rgba(167, 192, 217, 0.10),
-    0 0 0 1px rgba(255,255,255,0.01);
-}
-
-.nav-file-title.is-active::before,
-.tree-item-self.nav-file-title.is-active::before {
-  width: 4px;
-  background: linear-gradient(
-    180deg,
-    #bfd4e8 0%,
-    #98b7d4 100%
-  );
-}
-
-/* hover도 살짝 더 또렷하게 */
-.nav-folder-title:hover,
-.nav-file-title:hover,
-.tree-item-self:hover {
-  background-color: rgba(149, 177, 202, 0.18) !important;
-}
-
-/* ---------------------------------------------------------
-   3. Folder depth contrast a bit stronger
-   --------------------------------------------------------- */
-.nav-folder-title,
-.tree-item-self.nav-folder-title {
-  color: #97b5d2;
-}
-
-.tree-item-children .nav-folder-title,
-.tree-item-children .tree-item-self.nav-folder-title {
-  color: #86a5c3;
-}
-
-.tree-item-children .tree-item-children .nav-folder-title,
-.tree-item-children .tree-item-children .tree-item-self.nav-folder-title {
-  color: #7595b4;
-}
-
-/* ---------------------------------------------------------
-   4. Callout refinement
-   - title and content more separable
-   - not too card-like
-   --------------------------------------------------------- */
-.callout {
-  border: 1px solid rgba(167, 192, 217, 0.24);
-  background:
-    linear-gradient(
-      180deg,
-      rgba(149, 177, 202, 0.12) 0%,
-      rgba(149, 177, 202, 0.07) 100%
-    );
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.025),
-    0 0 0 1px rgba(255,255,255,0.01);
-}
-
-.callout-title {
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,0.025) 0%,
-      rgba(255,255,255,0.01) 100%
-    );
-  border-bottom: 1px solid rgba(167, 192, 217, 0.12);
-  padding-left: 0.85rem;
-  padding-right: 0.85rem;
-}
-
-.callout-content {
-  padding-top: 0.35rem;
-}
-
-/* callout icon/title text slightly cleaner */
-.callout-title-inner {
-  color: #edf4fb;
-  font-weight: 650;
-}
-
-.callout-icon svg {
-  color: #adc7de;
-}
-
-/* ---------------------------------------------------------
-   5. Properties refinement
-   - key/value separation
-   - subtle internal rhythm
-   --------------------------------------------------------- */
-.metadata-container {
-  background:
-    linear-gradient(
-      180deg,
-      rgba(149, 177, 202, 0.10) 0%,
-      rgba(149, 177, 202, 0.055) 100%
-    );
-  border: 1px solid rgba(167, 192, 217, 0.24);
-  padding: 12px 14px;
-}
-
-.metadata-property {
-  border-top: 1px solid rgba(167, 192, 217, 0.10);
-  padding-top: 8px;
-  padding-bottom: 8px;
-  gap: 10px;
-}
-
-.metadata-property-key {
-  color: #b0c9df;
-  font-weight: 650;
-  letter-spacing: 0.01em;
-}
-
-.metadata-property-value {
-  color: #e0e9f2;
-}
-
-/* property input boxes a bit more visible */
-.metadata-input,
-.metadata-input-longtext,
-.metadata-property-value input,
-.metadata-property-value textarea {
-  border: 1px solid rgba(167, 192, 217, 0.14) !important;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
-}
-
-/* ---------------------------------------------------------
-   6. Embedded note / transclusion clearer
-   --------------------------------------------------------- */
-.markdown-embed,
-.internal-embed {
-  background:
-    linear-gradient(
-      180deg,
-      rgba(149, 177, 202, 0.075) 0%,
-      rgba(149, 177, 202, 0.035) 100%
-    );
-  border: 1px solid rgba(167, 192, 217, 0.18);
-}
-
-.markdown-embed-title {
-  color: #b3cae0;
-  background-color: rgba(255,255,255,0.02);
-}
-
-/* ---------------------------------------------------------
-   7. Code block / quote / table tuned to same panel family
-   --------------------------------------------------------- */
-.markdown-rendered pre,
-.HyperMD-codeblock,
-.cm-s-obsidian .HyperMD-codeblock {
-  border: 1px solid rgba(167, 192, 217, 0.18);
-}
-
-.markdown-rendered blockquote {
-  border-color: rgba(167, 192, 217, 0.22);
-  background:
-    linear-gradient(
-      180deg,
-      rgba(149, 177, 202, 0.10) 0%,
-      rgba(149, 177, 202, 0.045) 100%
-    );
-}
-
-.markdown-rendered table {
-  border: 1px solid rgba(167, 192, 217, 0.18);
-}
-
-.markdown-rendered th {
-  background:
-    linear-gradient(
-      180deg,
-      rgba(149, 177, 202, 0.12) 0%,
-      rgba(149, 177, 202, 0.08) 100%
-    );
-}
-
-.markdown-rendered td {
-  background-color: rgba(255,255,255,0.015);
-}
-
-/* ---------------------------------------------------------
-   8. Search / command / input boxes
-   --------------------------------------------------------- */
-.search-input-container input,
-.metadata-input-longtext,
-.prompt-input,
-input[type="text"],
-textarea {
-  border: 1px solid rgba(167, 192, 217, 0.16);
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,0.018) 0%,
-      rgba(255,255,255,0.01) 100%
-    ),
-    var(--bg-2);
-}
-
-/* ---------------------------------------------------------
-   9. Heading spacing slightly cleaner
-   --------------------------------------------------------- */
-.markdown-rendered h1 { margin-top: 1.6em; }
-.markdown-rendered h2 { margin-top: 1.45em; }
-.markdown-rendered h3 { margin-top: 1.3em; }
-
-/* ---------------------------------------------------------
-   10. Mobile safety
+   20. Mobile tuning
    --------------------------------------------------------- */
 @media (max-width: 768px) {
+  .markdown-rendered p,
+  .markdown-rendered li,
+  .markdown-rendered blockquote,
+  .markdown-rendered table,
+  .markdown-rendered .callout-content,
+  .cm-content {
+    line-height: 1.54 !important;
+  }
+
+  .workspace-tab-header-inner-title {
+    font-size: 0.92rem;
+  }
+
+  .nav-folder-title,
+  .nav-file-title,
+  .tree-item-self {
+    border-radius: 7px;
+  }
+
   .metadata-container,
   .callout,
   .markdown-embed,
@@ -915,5 +853,9 @@ textarea {
   .callout-title {
     padding-left: 0.75rem;
     padding-right: 0.75rem;
+  }
+
+  .markdown-rendered pre {
+    padding: 12px 12px;
   }
 }
