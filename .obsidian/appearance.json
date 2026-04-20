@@ -5,8 +5,7 @@
   "baseFontSize": 16,
   "baseFontSizeAction": true,
   "enabledCssSnippets": [
-    "things_z6fold-font-note",
-    "things-dark-folder-note"
+    "minimal-soft-tune"
   ],
   "monospaceFontFamily": "D2Coding",
   "interfaceFontFamily": "Pretendard"

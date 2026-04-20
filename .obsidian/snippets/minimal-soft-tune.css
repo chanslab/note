@@ -657,4 +657,263 @@ textarea:focus {
   border-radius: var(--radius-sm);
 }
 
- 
+ /* =========================================================
+   v2.2 fine tuning patch
+   append this at the very bottom of minimal-dark-blue-v2.css
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   1. Box separation a little clearer, still soft
+   --------------------------------------------------------- */
+.theme-dark {
+  --panel-bg-1: rgba(149, 177, 202, 0.055);
+  --panel-bg-2: rgba(149, 177, 202, 0.085);
+  --panel-bg-3: rgba(149, 177, 202, 0.11);
+
+  --panel-border-1: rgba(167, 192, 217, 0.16);
+  --panel-border-2: rgba(167, 192, 217, 0.24);
+
+  --panel-shadow-1: inset 0 1px 0 rgba(255,255,255,0.025);
+  --panel-shadow-2: 0 0 0 1px rgba(255,255,255,0.012);
+}
+
+/* ---------------------------------------------------------
+   2. Current note / active item a bit clearer
+   --------------------------------------------------------- */
+.nav-file-title.is-active,
+.tree-item-self.is-active,
+.workspace-leaf.mod-active .nav-file-title.is-active {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(167, 192, 217, 0.18) 0%,
+      rgba(149, 177, 202, 0.16) 100%
+    ) !important;
+  color: #f7fbff !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(167, 192, 217, 0.10),
+    0 0 0 1px rgba(255,255,255,0.01);
+}
+
+.nav-file-title.is-active::before,
+.tree-item-self.nav-file-title.is-active::before {
+  width: 4px;
+  background: linear-gradient(
+    180deg,
+    #bfd4e8 0%,
+    #98b7d4 100%
+  );
+}
+
+/* hover도 살짝 더 또렷하게 */
+.nav-folder-title:hover,
+.nav-file-title:hover,
+.tree-item-self:hover {
+  background-color: rgba(149, 177, 202, 0.18) !important;
+}
+
+/* ---------------------------------------------------------
+   3. Folder depth contrast a bit stronger
+   --------------------------------------------------------- */
+.nav-folder-title,
+.tree-item-self.nav-folder-title {
+  color: #97b5d2;
+}
+
+.tree-item-children .nav-folder-title,
+.tree-item-children .tree-item-self.nav-folder-title {
+  color: #86a5c3;
+}
+
+.tree-item-children .tree-item-children .nav-folder-title,
+.tree-item-children .tree-item-children .tree-item-self.nav-folder-title {
+  color: #7595b4;
+}
+
+/* ---------------------------------------------------------
+   4. Callout refinement
+   - title and content more separable
+   - not too card-like
+   --------------------------------------------------------- */
+.callout {
+  border: 1px solid rgba(167, 192, 217, 0.24);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(149, 177, 202, 0.12) 0%,
+      rgba(149, 177, 202, 0.07) 100%
+    );
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.025),
+    0 0 0 1px rgba(255,255,255,0.01);
+}
+
+.callout-title {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.025) 0%,
+      rgba(255,255,255,0.01) 100%
+    );
+  border-bottom: 1px solid rgba(167, 192, 217, 0.12);
+  padding-left: 0.85rem;
+  padding-right: 0.85rem;
+}
+
+.callout-content {
+  padding-top: 0.35rem;
+}
+
+/* callout icon/title text slightly cleaner */
+.callout-title-inner {
+  color: #edf4fb;
+  font-weight: 650;
+}
+
+.callout-icon svg {
+  color: #adc7de;
+}
+
+/* ---------------------------------------------------------
+   5. Properties refinement
+   - key/value separation
+   - subtle internal rhythm
+   --------------------------------------------------------- */
+.metadata-container {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(149, 177, 202, 0.10) 0%,
+      rgba(149, 177, 202, 0.055) 100%
+    );
+  border: 1px solid rgba(167, 192, 217, 0.24);
+  padding: 12px 14px;
+}
+
+.metadata-property {
+  border-top: 1px solid rgba(167, 192, 217, 0.10);
+  padding-top: 8px;
+  padding-bottom: 8px;
+  gap: 10px;
+}
+
+.metadata-property-key {
+  color: #b0c9df;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+}
+
+.metadata-property-value {
+  color: #e0e9f2;
+}
+
+/* property input boxes a bit more visible */
+.metadata-input,
+.metadata-input-longtext,
+.metadata-property-value input,
+.metadata-property-value textarea {
+  border: 1px solid rgba(167, 192, 217, 0.14) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+}
+
+/* ---------------------------------------------------------
+   6. Embedded note / transclusion clearer
+   --------------------------------------------------------- */
+.markdown-embed,
+.internal-embed {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(149, 177, 202, 0.075) 0%,
+      rgba(149, 177, 202, 0.035) 100%
+    );
+  border: 1px solid rgba(167, 192, 217, 0.18);
+}
+
+.markdown-embed-title {
+  color: #b3cae0;
+  background-color: rgba(255,255,255,0.02);
+}
+
+/* ---------------------------------------------------------
+   7. Code block / quote / table tuned to same panel family
+   --------------------------------------------------------- */
+.markdown-rendered pre,
+.HyperMD-codeblock,
+.cm-s-obsidian .HyperMD-codeblock {
+  border: 1px solid rgba(167, 192, 217, 0.18);
+}
+
+.markdown-rendered blockquote {
+  border-color: rgba(167, 192, 217, 0.22);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(149, 177, 202, 0.10) 0%,
+      rgba(149, 177, 202, 0.045) 100%
+    );
+}
+
+.markdown-rendered table {
+  border: 1px solid rgba(167, 192, 217, 0.18);
+}
+
+.markdown-rendered th {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(149, 177, 202, 0.12) 0%,
+      rgba(149, 177, 202, 0.08) 100%
+    );
+}
+
+.markdown-rendered td {
+  background-color: rgba(255,255,255,0.015);
+}
+
+/* ---------------------------------------------------------
+   8. Search / command / input boxes
+   --------------------------------------------------------- */
+.search-input-container input,
+.metadata-input-longtext,
+.prompt-input,
+input[type="text"],
+textarea {
+  border: 1px solid rgba(167, 192, 217, 0.16);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.018) 0%,
+      rgba(255,255,255,0.01) 100%
+    ),
+    var(--bg-2);
+}
+
+/* ---------------------------------------------------------
+   9. Heading spacing slightly cleaner
+   --------------------------------------------------------- */
+.markdown-rendered h1 { margin-top: 1.6em; }
+.markdown-rendered h2 { margin-top: 1.45em; }
+.markdown-rendered h3 { margin-top: 1.3em; }
+
+/* ---------------------------------------------------------
+   10. Mobile safety
+   --------------------------------------------------------- */
+@media (max-width: 768px) {
+  .metadata-container,
+  .callout,
+  .markdown-embed,
+  .internal-embed,
+  .markdown-rendered pre {
+    border-radius: 10px;
+  }
+
+  .metadata-container {
+    padding: 10px 12px;
+  }
+
+  .callout-title {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+}
