@@ -1,13 +1,12 @@
 {
-  "cssTheme": "Things",
-  "theme": "moonstone",
-  "textFontFamily": "Pretendard",
-  "baseFontSize": 16,
+  "cssTheme": "Minimal",
+  "theme": "obsidian",
+  "textFontFamily": "",
+  "baseFontSize": 17,
   "baseFontSizeAction": true,
   "enabledCssSnippets": [
-    "things_z6fold-font-note",
-    "things-dark-folder-note"
+    "minimal-soft-tune"
   ],
-  "monospaceFontFamily": "D2Coding",
-  "interfaceFontFamily": "Pretendard"
+  "monospaceFontFamily": "",
+  "interfaceFontFamily": ""
 }
