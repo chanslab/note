@@ -1,0 +1,28 @@
+/* 1. 프리텐다드 CDN 불러오기 */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+/* 2. 모바일 및 태블릿(폴드 펼침 포함) 환경 대응 */
+/* max-width를 1200px로 높여 펼친 화면까지 커버하고, 터치 기기(coarse) 조건을 결합합니다. */
+@media (max-width: 1200px) and (pointer: coarse), (is-mobile) {
+    :root {
+        --default-font: 'Pretendard', sans-serif !important;
+        --font-text: 'Pretendard' !important;
+        --font-interface: 'Pretendard' !important;
+    }
+
+    /* 본문 및 모든 요소에 강제 적용 */
+    body, 
+    .markdown-source-view, 
+    .markdown-rendered,
+    .nav-file-title,
+    .nav-folder-title {
+        font-family: 'Pretendard' !important;
+    }
+
+    /* Things 테마 헤딩 폰트 고정 */
+    h1, h2, h3, h4, h5, h6,
+    .cm-header-1, .cm-header-2, .cm-header-3, 
+    .cm-header-4, .cm-header-5, .cm-header-6 {
+        font-family: 'Pretendard' !important;
+    }
+}
