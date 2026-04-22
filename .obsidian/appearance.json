@@ -2,7 +2,7 @@
   "cssTheme": "Things",
   "theme": "obsidian",
   "textFontFamily": "Pretendard",
-  "baseFontSize": 16,
+  "baseFontSize": 19,
   "baseFontSizeAction": true,
   "enabledCssSnippets": [
     "minimal_custom"
