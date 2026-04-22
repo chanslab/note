@@ -24,46 +24,66 @@
     }
 }
 
-/* 3. 사이드바 - 폴더/파일 색상 차별화 및 호버 효과 */
-.nav-folder-title { 
-    color: #81a1c1 !important; /* 차분한 블루 그레이 (폴더) */
+/* 3. 사이드바 - 계층별 색상 및 고밀도 설정 */
+
+/* [Level 1] 최상위 폴더 및 파일 - 플래티넘 실버 */
+.nav-folder-title, 
+.nav-file-title {
+    color: #f1f5f9 !important;
     font-weight: 600;
 }
-.nav-file-title { 
-    color: #d8dee9 !important; /* 연한 그레이 (노트) */
+
+/* [Level 2] 2단계 계층 - 차분한 스틸 블루 */
+.nav-folder-children .nav-folder-title,
+.nav-folder-children .nav-file-title {
+    color: #94a3b8 !important; /* Muted Slate Blue */
+    font-weight: 500;
 }
+
+/* [Level 3] 3단계 계층 - 은은한 뮤트 그린/그레이 */
+.nav-folder-children .nav-folder-children .nav-folder-title,
+.nav-folder-children .nav-folder-children .nav-file-title {
+    color: #717d8c !important; /* Darker Slate */
+}
+
+/* [Level 4+] 4단계 이상 깊은 계층 - 어두운 슬레이트 */
+.nav-folder-children .nav-folder-children .nav-folder-children .nav-folder-title,
+.nav-folder-children .nav-folder-children .nav-folder-children .nav-file-title {
+    color: #475569 !important;
+    font-size: 0.8rem; /* 깊은 계층은 가독성을 위해 살짝 작게 */
+}
+
+/* 폴더와 파일의 구분 (폴더는 조금 더 밝게 강조) */
+.nav-folder-title {
+    filter: brightness(1.2);
+}
+
+/* 마우스 호버 시 전체 계층 공통 피드백 */
 .nav-file-title:hover, .nav-folder-title:hover {
-    background-color: rgba(255, 255, 255, 0.07) !important;
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    color: #ffffff !important;
+    filter: brightness(1.5);
 }
+
+/* 현재 열린 노트 (Active) - 노드 블루 포인트 */
 .nav-file-title.is-active {
-    background-color: rgba(136, 192, 208, 0.15) !important;
-    color: #88c0d0 !important; /* 활성 노트 포인트 */
+    background-color: rgba(136, 192, 208, 0.12) !important;
+    color: #88c0d0 !important;
+    font-weight: 700 !important;
     border-right: 2px solid #88c0d0;
 }
 
-/* 3. 사이드바 - 폴더 및 아이템 간격 추가 축소 */
+/* 사이드바 간격 최소화 (요청 반영) */
 .nav-item-content {
-    /* 수직 패딩 완전 제거 및 최소 높이 하향 */
     padding-top: 0px !important;
     padding-bottom: 0px !important;
-    min-height: 11px !important; 
+    min-height: 19px !important;
+    margin: -1px 0 !important;
 }
 
-/* 폴더와 파일 아이템 자체의 마진을 줄여 더 밀착시킴 */
-.nav-item {
-    margin-bottom: -1px !important;
-}
-
-/* 폴더 아이콘(화살표) 크기와 정렬 미세 조정 */
-.nav-folder-collapse-indicator {
-    margin-right: 1px !important;
-    padding: 0 !important;
-}
-
-/* 텍스트 크기가 너무 크면 간격이 벌어지므로 폰트 사이즈 확인 */
-.nav-file-title-content, 
-.nav-folder-title-content {
-    font-size: 0.85rem !important; /* 사이드바 텍스트를 살짝 줄여 밀도 향상 */
+.nav-folder-children {
+    padding-left: 12px !important; /* 들여쓰기 간격 축소 */
+    border-left: 1px solid rgba(255, 255, 255, 0.03) !important;
 }
 
 

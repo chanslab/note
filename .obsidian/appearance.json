@@ -4,7 +4,9 @@
   "textFontFamily": "Pretendard",
   "baseFontSize": 18,
   "baseFontSizeAction": true,
-  "enabledCssSnippets": [],
+  "enabledCssSnippets": [
+    "minimal_custom"
+  ],
   "monospaceFontFamily": "D2Coding",
   "interfaceFontFamily": "Pretendard"
 }
