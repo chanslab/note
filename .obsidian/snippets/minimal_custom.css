@@ -1,0 +1,98 @@
+/* 1. 폰트 설정 (CDN 및 로컬) */
+/* 모바일용 Pretendard 및 JetBrains Mono CDN 호출 */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+    --font-interface: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-text: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-monospace: "D2Coding", "JetBrains Mono", monospace;
+}
+
+/* 모바일 환경 폰트 강제 지정 */
+.is-mobile {
+    --font-interface: "Pretendard", sans-serif;
+    --font-text: "Pretendard", sans-serif;
+    --font-monospace: "JetBrains Mono", monospace;
+}
+
+/* 2. 데스크탑 전용 설정 (맥, 윈도우) */
+.is-desktop {
+    /* 라인 넓이 약 10% 확장 (Minimal 테마 기본은 약 40em~45em) */
+    --file-line-width: 50rem; 
+    
+    /* 맞춤법 검사 붉은 밑줄 제거 */
+    .cm-spell-error {
+        background-image: none !important;
+        text-decoration: none !important;
+    }
+}
+
+/* 3. 사이드바 (탐색기) 색상 및 효과 */
+/* 폴더 색상 (Mute톤 블루/그레이) */
+.nav-folder-title {
+    color: #8da3b9 !important;
+}
+
+/* 노트 파일 색상 (Mute톤 연한 그레이) */
+.nav-file-title {
+    color: #a0a0a0 !important;
+}
+
+/* 마우스 호버 효과 */
+.nav-file-title:hover, .nav-folder-title:hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    color: #ffffff !important;
+}
+
+/* 현재 열린 노트 강조 (Mute톤 민트/그린 계열) */
+.nav-file-title.is-active {
+    background-color: rgba(100, 148, 137, 0.2) !important;
+    color: #a3c9c1 !important;
+    font-weight: 600;
+}
+
+/* 4. Mermaid 차트 스타일 */
+.mermaid svg {
+    background-color: #f8f9fa !important; /* 흰색 계열 바탕 */
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.mermaid g rect, .mermaid g polygon, .mermaid g circle, .mermaid .node rect {
+    fill: #ffffff !important;
+    stroke: #333333 !important;
+}
+
+.mermaid .edgePath path {
+    stroke: #333333 !important; /* 연결 선 검은색 계열 */
+    stroke-width: 1.5px !important;
+}
+
+.mermaid .arrowheadPath {
+    fill: #333333 !important;
+}
+
+.mermaid text {
+    fill: #000000 !important; /* 글씨 검은색 */
+    font-family: var(--font-interface) !important;
+}
+
+/* 5. 콜아웃(Callouts) 및 프로퍼티(Properties) */
+/* 다크모드 배경과 구분되도록 약간 밝은 Mute톤 배경 설정 */
+.callout {
+    background-color: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.metadata-container {
+    background-color: rgba(255, 255, 255, 0.02) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+/* 프로퍼티 라벨 색상 조정 */
+.metadata-property-key {
+    color: #888888 !important;
+}
