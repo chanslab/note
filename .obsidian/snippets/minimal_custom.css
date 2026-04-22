@@ -41,6 +41,31 @@
     border-right: 2px solid #88c0d0;
 }
 
+/* 3. 사이드바 - 폴더 및 아이템 간격 추가 축소 */
+.nav-item-content {
+    /* 수직 패딩 완전 제거 및 최소 높이 하향 */
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    min-height: 11px !important; 
+}
+
+/* 폴더와 파일 아이템 자체의 마진을 줄여 더 밀착시킴 */
+.nav-item {
+    margin-bottom: -1px !important;
+}
+
+/* 폴더 아이콘(화살표) 크기와 정렬 미세 조정 */
+.nav-folder-collapse-indicator {
+    margin-right: 1px !important;
+    padding: 0 !important;
+}
+
+/* 텍스트 크기가 너무 크면 간격이 벌어지므로 폰트 사이즈 확인 */
+.nav-file-title-content, 
+.nav-folder-title-content {
+    font-size: 0.85rem !important; /* 사이드바 텍스트를 살짝 줄여 밀도 향상 */
+}
+
 
 /* 4. Heading 스타일 (구조적 차별화 강화 버전) */
 
@@ -310,4 +335,21 @@ body {
 .markdown-rendered tbody tr:nth-child(even),
 .cm-table-widget tr:nth-child(even) {
     background-color: rgba(255, 255, 255, 0.02) !important;
+}
+
+/* 9. 표 스타일 - 셀 높이 최적화 */
+.markdown-rendered td,
+.cm-table-widget td,
+.markdown-rendered th,
+.cm-table-widget th {
+    /* 상하 패딩을 10px -> 5px로 줄여 높이 축소 */
+    padding: 5px 10px !important; 
+    line-height: 1.4 !important; /* 행간도 살짝 조절 */
+}
+
+/* 표의 전체적인 긴장감을 위해 헤더 높이도 함께 조정 */
+.markdown-rendered th,
+.cm-table-widget th {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
 }

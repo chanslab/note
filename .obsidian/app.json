@@ -6,5 +6,6 @@
   "alwaysUpdateLinks": true,
   "readableLineLength": true,
   "propertiesInDocument": "visible",
-  "spellcheck": false
+  "spellcheck": false,
+  "autoConvertHtml": true
 }
