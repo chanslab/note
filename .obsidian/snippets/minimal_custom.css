@@ -76,7 +76,6 @@
 .markdown-rendered h4, .cm-header-4 {
     font-size: 1.15rem !important; /* 본문과 큰 차이 없는 정도로 축소 */
     color: #a3be8c !important;
-    font-style: italic; /* 기울임꼴로 성격 변화 */
     border-left: 4px solid rgba(163, 190, 140, 0.4);
     padding-left: 12px;
     margin-top: 1.2rem !important;
@@ -94,7 +93,7 @@
 
 /* H6: 주석/꼬리표 - 본문보다 작게, 대문자 자간 확장 */
 .markdown-rendered h6, .cm-header-6 {
-    font-size: 0.9rem !important;
+    font-size: 0.8rem !important;
     color: #d8dee9 !important;
     text-transform: uppercase;
     letter-spacing: 0.15em;
@@ -155,4 +154,63 @@ body {
 }
 .cm-selectionBackground, ::selection {
     background-color: rgba(148, 163, 184, 0.25) !important;
+}
+
+/* 8. 태그 스타일 (간격 최적화 및 고스트 실버) */
+
+/* [공통] 읽기 모드 및 전체 태그 컨테이너 */
+.tag, a.tag {
+    background-color: rgba(255, 255, 255, 0.05) !important; 
+    color: #cbd5e1 !important; 
+    font-size: 0.75rem !important; 
+    font-weight: 400 !important;
+    
+    /* 전체 여백 조정: 상하 1px, 좌우 5px로 밀착 */
+    padding: 1px 5px !important; 
+    border-radius: 3px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    
+    text-decoration: none !important;
+    display: inline-block;
+    line-height: 1.2;
+}
+
+/* [편집 모드] Live Preview용 상세 간격 조정 */
+/* 전체 태그 요소의 배경/테두리 통합 */
+.cm-s-obsidian span.cm-hashtag {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    color: #cbd5e1 !important;
+    font-family: var(--font-monospace) !important;
+    font-size: 0.75rem !important;
+    padding-top: 1px !important;
+    padding-bottom: 1px !important;
+}
+
+/* # 기호 부분: 오른쪽 여백 제거 */
+.cm-hashtag-begin {
+    padding-left: 4px !important;
+    padding-right: 0px !important;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 태그 이름 부분: 왼쪽 여백 제거 */
+.cm-hashtag-end {
+    padding-left: 0px !important;
+    padding-right: 4px !important;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 마우스 호버 효과 */
+.tag:hover, a.tag:hover, .cm-hashtag:hover {
+    background-color: rgba(255, 255, 255, 0.12) !important;
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
 }
