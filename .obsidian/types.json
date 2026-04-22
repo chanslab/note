@@ -12,6 +12,7 @@
     "도서가격": "number",
     "e-book": "checkbox",
     "부제": "text",
-    "번역본": "checkbox"
+    "번역본": "checkbox",
+    "일자": "datetime"
   }
 }
