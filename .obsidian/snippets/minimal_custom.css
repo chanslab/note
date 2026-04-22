@@ -96,3 +96,67 @@
 .metadata-property-key {
     color: #888888 !important;
 }
+
+
+/* 6. Heading 스타일 (크기 변동 및 시인성 강화) */
+
+/* 공통 설정: 상단 여백을 충분히 주어 섹션 구분 명확화 */
+.markdown-rendered h1, .markdown-rendered h2, .markdown-rendered h3,
+.markdown-rendered h4, .markdown-rendered h5, .markdown-rendered h6,
+.cm-header-1, .cm-header-2, .cm-header-3, .cm-header-4, .cm-header-5, .cm-header-6 {
+    font-weight: 800 !important;
+    line-height: 1.2;
+    margin-top: 1.5em !important;
+    margin-bottom: 0.5em !important;
+    letter-spacing: -0.03em;
+}
+
+/* H1: 대제목 (가장 크게, 스카이 블루) */
+.markdown-rendered h1, .cm-header-1 {
+    font-size: 2.4rem !important; /* 기본 크기의 약 2.4배 */
+    color: #339af0 !important;
+    border-bottom: 3px solid rgba(51, 154, 240, 0.4);
+    padding-bottom: 12px;
+}
+
+/* H2: 중제목 (에메랄드 그린) */
+.markdown-rendered h2, .cm-header-2 {
+    font-size: 1.9rem !important; /* 기본 크기의 약 1.9배 */
+    color: #20c997 !important;
+    border-bottom: 1.5px solid rgba(32, 201, 151, 0.3);
+    padding-bottom: 6px;
+}
+
+/* H3: 소주제 (바이올렛) */
+.markdown-rendered h3, .cm-header-3 {
+    font-size: 1.5rem !important; /* 기본 크기의 약 1.5배 */
+    color: #da77f2 !important;
+}
+
+/* H4: 세부 소주제 (오렌지) */
+.markdown-rendered h4, .cm-header-4 {
+    font-size: 1.25rem !important; /* 기본 크기의 약 1.25배 */
+    color: #ff922b !important;
+}
+
+/* H5: 강조 항목 (옐로우/골드) */
+.markdown-rendered h5, .cm-header-5 {
+    font-size: 1.1rem !important; /* 본문보다 약간 큼 */
+    color: #fcc419 !important;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+/* H6: 보조 항목 (로즈/핑크) */
+.markdown-rendered h6, .cm-header-6 {
+    font-size: 1.0rem !important; /* 본문과 동일한 크기 */
+    color: #ff8787 !important;
+    font-style: italic;
+    font-weight: 700 !important;
+}
+
+/* 첫 번째 헤딩이 문서 최상단에 올 경우 여백 제거 */
+.markdown-rendered > :first-child,
+.cm-content > :first-child {
+    margin-top: 0 !important;
+}
