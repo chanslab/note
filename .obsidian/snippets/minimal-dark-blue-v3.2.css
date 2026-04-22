@@ -1,5 +1,5 @@
 /* =========================================================
-   Obsidian Minimal Theme - Dark Mode CSS v3.2
+   Obsidian Minimal Theme - Dark Mode CSS v3.3
    - Minimal theme only
    - Dark mode only
    - macOS / Windows / Android
@@ -14,25 +14,28 @@
 
 /* ---------------------------------------------------------
    1. Base palette : Muted Blue / Dark
+   v3.3:
+   - background slightly darker
+   - headings clearer / sharper
    --------------------------------------------------------- */
 .theme-dark {
-  --bg-0: #16202a;
-  --bg-1: #1b2631;
-  --bg-2: #202c38;
-  --bg-3: #263443;
-  --bg-4: #2b3a49;
+  --bg-0: #131c25;
+  --bg-1: #17212b;
+  --bg-2: #1c2732;
+  --bg-3: #22303c;
+  --bg-4: #283743;
 
   --text-main: #dbe5ef;
   --text-normal: #c7d4e0;
   --text-muted: #a7b7c6;
   --text-faint: #8191a1;
 
-  --blue-1: #b9cee3;
-  --blue-2: #a7c0d9;
-  --blue-3: #95b1ca;
-  --blue-4: #7f9bb8;
-  --blue-5: #68839c;
-  --blue-6: #516879;
+  --blue-1: #c2d8ee;
+  --blue-2: #a9c7e3;
+  --blue-3: #8eb2d4;
+  --blue-4: #7199bf;
+  --blue-5: #587a98;
+  --blue-6: #425b73;
 
   --line-soft: rgba(167, 192, 217, 0.12);
   --line-mid: rgba(167, 192, 217, 0.18);
@@ -49,18 +52,18 @@
   --note-color: #d4deea;
   --note-muted: #b4c2d0;
 
-  /* calmer + clearer heading colors */
-  --h1-color: #9fb8cf;
-  --h2-color: #93acc4;
-  --h3-color: #87a1b9;
-  --h4-color: #7b96ae;
-  --h5-color: #8fa7bd;
-  --h6-color: #a2b6c8;
+  /* clearer heading colors */
+  --h1-color: #b7d7f6;
+  --h2-color: #9fc7ec;
+  --h3-color: #8db7df;
+  --h4-color: #7aa7d0;
+  --h5-color: #96bbe0;
+  --h6-color: #adc9e6;
 
   --blockquote-border: #6f8cab;
   --blockquote-bg: rgba(149, 177, 202, 0.08);
 
-  --code-bg: #16202a;
+  --code-bg: #141e27;
   --code-border: rgba(167, 192, 217, 0.14);
 
   --panel-bg-1: rgba(149, 177, 202, 0.055);
@@ -143,7 +146,7 @@ pre,
   background-color: var(--bg-1);
 }
 
-/* central note area slightly brighter */
+/* central note area */
 .theme-dark .workspace-leaf-content[data-type="markdown"] .view-content,
 .theme-dark .markdown-source-view,
 .theme-dark .markdown-preview-view {
@@ -152,7 +155,7 @@ pre,
 
 .theme-dark .cm-editor,
 .theme-dark .markdown-preview-sizer {
-  background-color: #1d2935 !important;
+  background-color: #1a2530 !important;
 }
 
 .theme-dark .view-header {
@@ -343,17 +346,17 @@ pre,
 .markdown-rendered h5,
 .markdown-rendered h6 {
   letter-spacing: 0.01em;
-  font-weight: 700;
+  font-weight: 750;
 }
 
 .markdown-rendered h1 {
-  border-bottom: 1px solid rgba(159, 184, 207, 0.18);
+  border-bottom: 1px solid rgba(183, 215, 246, 0.22);
   padding-bottom: 0.18em;
   margin-top: 1.6em;
 }
 
 .markdown-rendered h2 {
-  border-bottom: 1px solid rgba(147, 172, 196, 0.12);
+  border-bottom: 1px solid rgba(159, 199, 236, 0.16);
   padding-bottom: 0.12em;
   margin-top: 1.45em;
 }
