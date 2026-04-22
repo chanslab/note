@@ -1,8 +1,8 @@
 {
-  "cssTheme": "Things",
+  "cssTheme": "Minimal",
   "theme": "obsidian",
   "textFontFamily": "Pretendard",
-  "baseFontSize": 19,
+  "baseFontSize": 16,
   "baseFontSizeAction": true,
   "enabledCssSnippets": [
     "minimal_custom"
