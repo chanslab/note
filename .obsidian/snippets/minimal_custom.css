@@ -262,57 +262,52 @@ body {
 }
 
 
-/* 9. 표 스타일 (100% 너비 확장 및 전문 보고서 양식) */
+/* 9. 표 스타일 (100% 폭 강제 오버라이드) */
 
-/* 표 전체 너비를 라인 넓이의 100%로 강제 고정 */
+/* [1] 모든 모드에서 표와 그 컨테이너를 100%로 확장 */
+.markdown-source-view.mod-cm6 .cm-content table,
+.markdown-source-view.mod-cm6 .cm-table-widget,
 .markdown-rendered table,
-.markdown-source-view.mod-cm6 .cm-content table {
+.dataview.table-view-table {
     width: 100% !important;
     max-width: 100% !important;
-    display: table !important; /* 가득 채우기 위해 table 속성 강제 */
-    margin: 1.5rem 0 !important;
-    border-collapse: collapse !important;
-    table-layout: auto; /* 내용에 따라 유연하게 배분하되 전체 폭은 유지 */
+    min-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    display: table !important;
 }
 
-/* 제목 라인 (thead/th) 스타일 */
+/* [2] 편집 모드(Live Preview)에서 표 위젯 박스 자체를 확장 */
+.cm-table-widget, 
+.cm-embed-block {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* [3] 표 헤더 및 본문 스타일 (기존 스타일 유지 및 보완) */
 .markdown-rendered thead,
 .cm-table-widget thead {
-    background-color: rgba(129, 161, 193, 0.15) !important; 
+    background-color: rgba(129, 161, 193, 0.15) !important;
 }
 
 .markdown-rendered th,
 .cm-table-widget th {
-    color: #e2e8f0 !important; 
+    color: #e2e8f0 !important;
     font-weight: 700 !important;
-    text-align: center !important; /* 제목 라인 중앙 정렬 */
+    text-align: center !important; /* 헤더는 항상 중앙 정렬 */
     padding: 12px !important;
     border-bottom: 2px solid rgba(255, 255, 255, 0.15) !important;
-    border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
 }
 
-/* 본문 라인 (tbody/td) 스타일 */
 .markdown-rendered td,
 .cm-table-widget td {
     padding: 10px 12px !important;
     border: 1px solid rgba(255, 255, 255, 0.05) !important;
-    line-height: 1.6;
     vertical-align: middle;
 }
 
-/* 짝수 행 배경색 (Zebra Striping) */
+/* 짝수 행 배경색 */
 .markdown-rendered tbody tr:nth-child(even),
 .cm-table-widget tr:nth-child(even) {
     background-color: rgba(255, 255, 255, 0.02) !important;
-}
-
-/* 마우스 호버 시 행 강조 */
-.markdown-rendered tbody tr:hover,
-.cm-table-widget tr:hover {
-    background-color: rgba(255, 255, 255, 0.05) !important;
-}
-
-/* 편집 모드(Live Preview)에서 표 위젯 너비 강제 */
-.cm-table-widget {
-    width: 100% !important;
 }
