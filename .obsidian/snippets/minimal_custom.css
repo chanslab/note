@@ -100,87 +100,7 @@
 }
 
 
-/* 4. Mermaid 차트 스타일 (고대비 화이트 & 중앙 정렬) */
-
-/* Mermaid 블록 컨테이너: 배경색 강제 지정 및 중앙 정렬 */
-.mermaid {
-    display: flex !important;
-    justify-content: center !important; /* 가로 중앙 정렬 */
-    background-color: #ffffff !important; /* 전체 배경 흰색 */
-    padding: 20px !important;
-    border-radius: 12px !important;
-    margin: 1.5rem auto !important; /* 위아래 여백 및 중앙 배치 */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important; /* 다크모드와 구분되는 그림자 */
-    max-width: 100% !important;
-}
-
-/* 내부 SVG 배경 투명화 (컨테이너 배경을 따름) */
-.mermaid svg {
-    background-color: transparent !important;
-}
-
-/* 도형(노드) 스타일: 흰색 바탕에 검은색 테두리 */
-.mermaid .node rect,
-.mermaid .node circle,
-.mermaid .node polygon,
-.mermaid .node path,
-.mermaid .node-base {
-    fill: #ffffff !important;
-    stroke: #000000 !important;
-    stroke-width: 2px !important;
-}
-
-/* 연결 선 및 화살표 스타일: 검은색 */
-.mermaid .edgePath path.path,
-.mermaid .edgePath path,
-.mermaid .flowchart-link {
-    stroke: #000000 !important;
-    stroke-width: 1.5px !important;
-}
-
-/* 화살표 머리 색상 */
-.mermaid .marker,
-.mermaid .arrowheadPath {
-    fill: #000000 !important;
-    stroke: #000000 !important;
-}
-
-/* 모든 텍스트 스타일: 검은색 */
-.mermaid text,
-.mermaid .label,
-.mermaid .edgeLabel,
-.mermaid .nodeLabel {
-    fill: #000000 !important;
-    color: #000000 !important;
-    font-weight: 500 !important;
-    font-family: var(--font-interface) !important;
-}
-
-/* 간혹 발생하는 보라색 테두리 강제 제거 */
-.mermaid .cluster rect {
-    fill: #f8f9fa !important;
-    stroke: #adb5bd !important;
-}
-
-/* 5. Mermaid - 요청하신 고대비 스타일 유지 */
-.mermaid svg {
-    background-color: #ffffff !important; 
-    border-radius: 8px;
-    padding: 15px;
-}
-.mermaid text { fill: #000 !important; }
-.mermaid .edgePath path { stroke: #333 !important; }
-
-/* 6. 콜아웃 & 프로퍼티 - 배경과 부드럽게 분리 */
-.callout {
-    background-color: #2e3440 !important; /* 배경보다 살짝 밝은 네이비 그레이 */
-    border: 1px solid #3b4252 !important;
-}
-.metadata-container {
-    background-color: rgba(0, 0, 0, 0.2) !important;
-    border: 1px solid rgba(255, 255, 255, 0.05) !important;
-}
-
+/
 /* 7. 노트 제목 및 시스템 액센트 컬러 변경 */
 
 /* 인라인 제목 (노트 본문 맨 위에 표시되는 제목) */
@@ -274,4 +194,69 @@ body {
     background-color: rgba(255, 255, 255, 0.12) !important;
     color: #ffffff !important;
     border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+
+/* 4. Mermaid 차트 스타일 (다크 모드 배경 & 고대비 도형) */
+
+/* Mermaid 블록 컨테이너: 배경을 투명하게 하거나 노트 바탕색을 따름 */
+.mermaid {
+    display: flex !important;
+    justify-content: center !important; /* 가로 중앙 정렬 */
+    background-color: transparent !important; /* 전체 배경 투명화 (노트 바탕색 노출) */
+    padding: 20px !important;
+    border-radius: 12px !important;
+    margin: 1.5rem auto !important; /* 위아래 여백 및 중앙 배치 */
+    max-width: 100% !important;
+}
+
+/* 내부 SVG 배경 투명화 */
+.mermaid svg {
+    background-color: transparent !important;
+}
+
+/* 도형(노드) 스타일: 흰색 바탕에 검은색 테두리 */
+/* 이미지에서 보라색 테두리로 보이던 부분 포함 */
+.mermaid .node rect,
+.mermaid .node circle,
+.mermaid .node polygon,
+.mermaid .node path,
+.mermaid .node-base,
+.mermaid .cluster rect { /* 클러스터 배경도 포함 */
+    fill: #ffffff !important; /* 도형 바탕 흰색 */
+    stroke: #000000 !important; /* 도형 테두리 검은색 */
+    stroke-width: 2px !important;
+}
+
+/* 연결 선 및 화살표 스타일: 검은색 */
+.mermaid .edgePath path.path,
+.mermaid .edgePath path,
+.mermaid .flowchart-link {
+    stroke: #000000 !important; /* 연결 선 검은색 */
+    stroke-width: 1.5px !important;
+}
+
+/* 화살표 머리 색상 */
+.mermaid .marker,
+.mermaid .arrowheadPath {
+    fill: #000000 !important;
+    stroke: #000000 !important;
+}
+
+/* 모든 텍스트 스타일: 검은색 */
+.mermaid text,
+.mermaid .label,
+.mermaid .edgeLabel,
+.mermaid .nodeLabel,
+.mermaid .label text { /* 클러스터 라벨 포함 */
+    fill: #000000 !important; /* 글씨 검은색 */
+    color: #000000 !important;
+    font-weight: 500 !important;
+    font-family: var(--font-interface) !important;
+}
+
+/* 간혹 발생하는 다른 테마 컬러 강제 제거 */
+.mermaid * {
+    --mermaid-theme-color-1: #000000;
+    --mermaid-theme-color-2: #ffffff;
 }
