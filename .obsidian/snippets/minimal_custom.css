@@ -91,3 +91,39 @@
     background-color: rgba(0, 0, 0, 0.2) !important;
     border: 1px solid rgba(255, 255, 255, 0.05) !important;
 }
+
+/* 7. 노트 제목 및 시스템 액센트 컬러 변경 */
+
+/* 인라인 제목 (노트 본문 맨 위에 표시되는 제목) */
+.inline-title {
+    color: #f8fafc !important; /* H1과 동일한 플래티넘 실버 */
+    font-weight: 800 !important;
+    letter-spacing: -0.03em !important;
+}
+
+/* 상단 탭 및 뷰 헤더 제목 */
+.view-header-title {
+    color: #cbd5e1 !important; /* 약간 차분한 실버 */
+    font-weight: 600 !important;
+}
+
+/* Minimal 테마의 기본 파란색 액센트를 실버/슬레이트 계열로 변경 */
+/* (링크, 체크박스, 버튼 등의 파란색도 함께 변경됩니다) */
+body {
+    --accent-h: 215; /* 색상(Hue): 블루그레이 톤 */
+    --accent-s: 20%; /* 채도(Saturation): 낮게 조정 */
+    --accent-l: 65%; /* 밝기(Lightness): 은은하게 */
+    
+    /* 직접적인 색상 지정 */
+    --color-accent: #94a3b8 !important;
+    --color-accent-1: #cbd5e1 !important;
+    --color-accent-2: #e2e8f0 !important;
+}
+
+/* 커서 및 선택 영역 색상 조정 (파란색 제거) */
+.cm-cursor {
+    border-left: 2px solid #f8fafc !important;
+}
+.cm-selectionBackground, ::selection {
+    background-color: rgba(148, 163, 184, 0.25) !important;
+}
