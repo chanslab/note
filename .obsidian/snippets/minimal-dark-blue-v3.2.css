@@ -1,0 +1,894 @@
+/* =========================================================
+   Obsidian Minimal Theme - Dark Mode CSS v3.2
+   - Minimal theme only
+   - Dark mode only
+   - macOS / Windows / Android
+   - Git synced vault
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   0. Mobile/Web fallback fonts
+   --------------------------------------------------------- */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+@import url('https://cdn.jsdelivr.net/npm/jetbrains-mono@1.0.6/css/jetbrains-mono.min.css');
+
+/* ---------------------------------------------------------
+   1. Base palette : Muted Blue / Dark
+   --------------------------------------------------------- */
+.theme-dark {
+  --bg-0: #16202a;
+  --bg-1: #1b2631;
+  --bg-2: #202c38;
+  --bg-3: #263443;
+  --bg-4: #2b3a49;
+
+  --text-main: #dbe5ef;
+  --text-normal: #c7d4e0;
+  --text-muted: #a7b7c6;
+  --text-faint: #8191a1;
+
+  --blue-1: #b9cee3;
+  --blue-2: #a7c0d9;
+  --blue-3: #95b1ca;
+  --blue-4: #7f9bb8;
+  --blue-5: #68839c;
+  --blue-6: #516879;
+
+  --line-soft: rgba(167, 192, 217, 0.12);
+  --line-mid: rgba(167, 192, 217, 0.18);
+  --line-strong: rgba(167, 192, 217, 0.26);
+
+  --hover-bg: rgba(149, 177, 202, 0.18);
+  --active-bg: rgba(149, 177, 202, 0.22);
+  --open-bg: rgba(127, 155, 184, 0.18);
+  --tab-active-bg: rgba(149, 177, 202, 0.12);
+
+  --folder-color: #97b5d2;
+  --folder-color-2: #86a5c3;
+  --folder-color-3: #7595b4;
+  --note-color: #d4deea;
+  --note-muted: #b4c2d0;
+
+  /* calmer + clearer heading colors */
+  --h1-color: #9fb8cf;
+  --h2-color: #93acc4;
+  --h3-color: #87a1b9;
+  --h4-color: #7b96ae;
+  --h5-color: #8fa7bd;
+  --h6-color: #a2b6c8;
+
+  --blockquote-border: #6f8cab;
+  --blockquote-bg: rgba(149, 177, 202, 0.08);
+
+  --code-bg: #16202a;
+  --code-border: rgba(167, 192, 217, 0.14);
+
+  --panel-bg-1: rgba(149, 177, 202, 0.055);
+  --panel-bg-2: rgba(149, 177, 202, 0.085);
+  --panel-bg-3: rgba(149, 177, 202, 0.11);
+
+  --panel-border-1: rgba(167, 192, 217, 0.16);
+  --panel-border-2: rgba(167, 192, 217, 0.24);
+
+  --panel-shadow-1: inset 0 1px 0 rgba(255,255,255,0.025);
+  --panel-shadow-2: 0 0 0 1px rgba(255,255,255,0.012);
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+}
+
+/* ---------------------------------------------------------
+   2. Fonts
+   --------------------------------------------------------- */
+body {
+  --font-text-theme:
+    "Pretendard",
+    "Pretendard Variable",
+    "Apple SD Gothic Neo",
+    "Malgun Gothic",
+    "Noto Sans KR",
+    sans-serif;
+
+  --font-monospace-theme:
+    "D2Coding",
+    "D2Coding ligature",
+    "JetBrains Mono",
+    "Cascadia Code",
+    "Menlo",
+    monospace;
+}
+
+body,
+.markdown-source-view,
+.markdown-preview-view,
+.cm-editor,
+.workspace,
+.workspace-tab-container,
+.nav-files-container {
+  font-family: var(--font-text-theme);
+  color: var(--text-main);
+}
+
+code,
+pre,
+.cm-inline-code,
+.markdown-rendered code,
+.markdown-rendered pre code,
+.HyperMD-codeblock,
+.cm-s-obsidian span.cm-inline-code,
+.cm-editor .cm-line {
+  font-family: var(--font-monospace-theme);
+}
+
+/* ---------------------------------------------------------
+   3. Global background
+   --------------------------------------------------------- */
+.theme-dark,
+.theme-dark .workspace,
+.theme-dark .workspace-split,
+.theme-dark .workspace-tabs,
+.theme-dark .workspace-tab-container,
+.theme-dark .view-content {
+  background-color: var(--bg-0);
+}
+
+.theme-dark .workspace-leaf-content,
+.theme-dark .mod-root .workspace-tab-header-container {
+  background-color: var(--bg-1);
+}
+
+.theme-dark .vertical-tab-content,
+.theme-dark .workspace-sidedock-vault-profile {
+  background-color: var(--bg-1);
+}
+
+/* central note area slightly brighter */
+.theme-dark .workspace-leaf-content[data-type="markdown"] .view-content,
+.theme-dark .markdown-source-view,
+.theme-dark .markdown-preview-view {
+  background-color: var(--bg-1) !important;
+}
+
+.theme-dark .cm-editor,
+.theme-dark .markdown-preview-sizer {
+  background-color: #1d2935 !important;
+}
+
+.theme-dark .view-header {
+  background-color: var(--bg-1);
+}
+
+/* ---------------------------------------------------------
+   4. Readable line width - desktop only
+   --------------------------------------------------------- */
+@media (min-width: 1025px) {
+  .markdown-source-view.mod-cm6.is-readable-line-width .cm-contentContainer,
+  .markdown-preview-view.is-readable-line-width .markdown-preview-sizer {
+    max-width: 980px !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .markdown-source-view.mod-cm6.is-readable-line-width .cm-contentContainer,
+  .markdown-preview-view.is-readable-line-width .markdown-preview-sizer {
+    max-width: 100% !important;
+  }
+}
+
+/* ---------------------------------------------------------
+   5. Sidebar / explorer / folder-note distinction
+   --------------------------------------------------------- */
+.workspace-split.mod-left-split {
+  border-right: 1px solid var(--line-soft);
+}
+
+.workspace-split.mod-right-split {
+  border-left: 1px solid var(--line-soft);
+}
+
+.nav-files-container,
+.workspace-leaf-content[data-type="file-explorer"] .view-content {
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.00),
+    rgba(149,177,202,0.02)
+  );
+}
+
+.nav-folder-title,
+.tree-item-self.nav-folder-title {
+  color: var(--folder-color);
+  font-weight: 650;
+  border-radius: var(--radius-md);
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.nav-file-title,
+.tree-item-self.nav-file-title {
+  color: var(--note-color);
+  border-radius: var(--radius-md);
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.tree-item-children .nav-folder-title,
+.tree-item-children .tree-item-self.nav-folder-title {
+  color: var(--folder-color-2);
+}
+
+.tree-item-children .tree-item-children .nav-folder-title,
+.tree-item-children .tree-item-children .tree-item-self.nav-folder-title {
+  color: var(--folder-color-3);
+}
+
+.nav-folder-title:hover,
+.nav-file-title:hover,
+.tree-item-self:hover {
+  background-color: var(--hover-bg) !important;
+  color: #eef4fa !important;
+}
+
+.nav-file-title.is-active,
+.tree-item-self.is-active,
+.workspace-leaf.mod-active .nav-file-title.is-active {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(167, 192, 217, 0.18) 0%,
+      rgba(149, 177, 202, 0.16) 100%
+    ) !important;
+  color: #f7fbff !important;
+  font-weight: 650;
+  box-shadow:
+    inset 0 0 0 1px rgba(167, 192, 217, 0.10),
+    0 0 0 1px rgba(255,255,255,0.01);
+}
+
+.nav-file-title.is-active::before,
+.tree-item-self.nav-file-title.is-active::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 18%;
+  width: 4px;
+  height: 64%;
+  border-radius: 999px;
+  background: linear-gradient(
+    180deg,
+    #bfd4e8 0%,
+    #98b7d4 100%
+  );
+}
+
+.tree-item.nav-folder:not(.is-collapsed) > .tree-item-self.nav-folder-title {
+  background-color: rgba(149, 177, 202, 0.08);
+}
+
+.tree-item-icon {
+  color: var(--text-muted);
+}
+
+.tree-item-self:hover .tree-item-icon {
+  color: var(--blue-2);
+}
+
+/* ---------------------------------------------------------
+   6. Tabs
+   --------------------------------------------------------- */
+.workspace-tab-header-container {
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.workspace-tab-header {
+  border-radius: 10px 10px 0 0;
+  margin: 0 2px;
+}
+
+.workspace-tab-header:hover {
+  background-color: rgba(149, 177, 202, 0.08);
+}
+
+.workspace-tab-header.is-active {
+  background-color: var(--tab-active-bg) !important;
+  position: relative;
+}
+
+.workspace-tab-header.is-active::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--blue-2);
+}
+
+.workspace-tab-header.is-active .workspace-tab-header-inner-title {
+  color: #eef4fa;
+  font-weight: 600;
+}
+
+.workspace-tab-header-inner-title {
+  color: var(--text-normal);
+}
+
+/* ---------------------------------------------------------
+   7. Headings
+   --------------------------------------------------------- */
+.markdown-rendered h1,
+.cm-header-1 { color: var(--h1-color) !important; }
+
+.markdown-rendered h2,
+.cm-header-2 { color: var(--h2-color) !important; }
+
+.markdown-rendered h3,
+.cm-header-3 { color: var(--h3-color) !important; }
+
+.markdown-rendered h4,
+.cm-header-4 { color: var(--h4-color) !important; }
+
+.markdown-rendered h5,
+.cm-header-5 { color: var(--h5-color) !important; }
+
+.markdown-rendered h6,
+.cm-header-6 { color: var(--h6-color) !important; }
+
+.markdown-rendered h1,
+.markdown-rendered h2,
+.markdown-rendered h3,
+.markdown-rendered h4,
+.markdown-rendered h5,
+.markdown-rendered h6 {
+  letter-spacing: 0.01em;
+  font-weight: 700;
+}
+
+.markdown-rendered h1 {
+  border-bottom: 1px solid rgba(159, 184, 207, 0.18);
+  padding-bottom: 0.18em;
+  margin-top: 1.6em;
+}
+
+.markdown-rendered h2 {
+  border-bottom: 1px solid rgba(147, 172, 196, 0.12);
+  padding-bottom: 0.12em;
+  margin-top: 1.45em;
+}
+
+.markdown-rendered h3 { margin-top: 1.3em; }
+
+/* ---------------------------------------------------------
+   8. Body text / spacing / links / emphasis
+   --------------------------------------------------------- */
+.markdown-rendered,
+.cm-content {
+  color: var(--text-main);
+}
+
+.markdown-rendered p,
+.markdown-rendered li,
+.markdown-rendered blockquote,
+.markdown-rendered table,
+.markdown-rendered .callout-content,
+.cm-content {
+  line-height: 1.58 !important;
+}
+
+.markdown-rendered ul > li,
+.markdown-rendered ol > li {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+.markdown-rendered h1 + p,
+.markdown-rendered h2 + p,
+.markdown-rendered h3 + p,
+.markdown-rendered h4 + p,
+.markdown-rendered h5 + p,
+.markdown-rendered h6 + p {
+  margin-top: 0.35em;
+}
+
+.markdown-rendered strong,
+.cm-strong {
+  color: #edf4fb;
+  font-weight: 700;
+}
+
+.markdown-rendered em,
+.cm-em {
+  color: #d2dfeb;
+}
+
+.markdown-rendered a,
+.cm-link {
+  color: var(--blue-2);
+}
+
+.markdown-rendered a:hover,
+.cm-link:hover {
+  color: #d8e8f7;
+}
+
+/* ---------------------------------------------------------
+   9. Lists / quote / hr / table
+   --------------------------------------------------------- */
+.markdown-rendered ul > li::marker,
+.markdown-rendered ol > li::marker {
+  color: var(--blue-3);
+}
+
+.markdown-rendered blockquote {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(149, 177, 202, 0.10) 0%,
+      rgba(149, 177, 202, 0.045) 100%
+    );
+  border-left: 3px solid var(--blockquote-border);
+  border: 1px solid rgba(167, 192, 217, 0.22);
+  border-left-width: 3px;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  box-shadow: var(--panel-shadow-1), var(--panel-shadow-2);
+  padding: 0.7em 1em;
+  color: var(--text-normal);
+}
+
+.markdown-rendered hr {
+  border: none;
+  border-top: 1px solid var(--line-soft);
+}
+
+/* table full width */
+.markdown-rendered .table-wrapper,
+.markdown-preview-view .table-wrapper {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.markdown-rendered table {
+  border-collapse: collapse;
+  width: 100% !important;
+  min-width: 100% !important;
+  table-layout: auto;
+  border: 1px solid rgba(167, 192, 217, 0.18);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.markdown-source-view.mod-cm6 .cm-table-widget table {
+  width: 100% !important;
+  min-width: 100% !important;
+}
+
+.markdown-rendered th,
+.markdown-rendered td {
+  border: 1px solid var(--line-soft);
+  padding: 8px 12px;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.markdown-rendered th {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(149, 177, 202, 0.12) 0%,
+      rgba(149, 177, 202, 0.08) 100%
+    );
+  color: #e4edf6;
+}
+
+.markdown-rendered td {
+  background-color: rgba(255,255,255,0.015);
+}
+
+/* ---------------------------------------------------------
+   10. Inline code / code block
+   --------------------------------------------------------- */
+.cm-inline-code,
+.markdown-rendered code {
+  background-color: var(--code-bg);
+  color: #dbe8f5;
+  border: 1px solid var(--code-border);
+  border-radius: 6px;
+  padding: 0.12em 0.34em;
+}
+
+.markdown-rendered pre,
+.HyperMD-codeblock,
+.cm-s-obsidian .HyperMD-codeblock {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00)),
+    var(--code-bg) !important;
+  border: 1px solid rgba(167, 192, 217, 0.18);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--panel-shadow-1), var(--panel-shadow-2);
+  padding: 14px 16px;
+}
+
+/* ---------------------------------------------------------
+   11. Callouts
+   --------------------------------------------------------- */
+.callout {
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(167, 192, 217, 0.24);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(149, 177, 202, 0.12) 0%,
+      rgba(149, 177, 202, 0.07) 100%
+    );
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.025),
+    0 0 0 1px rgba(255,255,255,0.01);
+  padding-top: 2px;
+}
+
+.callout-title {
+  color: #e6eff8;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.025) 0%,
+      rgba(255,255,255,0.01) 100%
+    );
+  border-bottom: 1px solid rgba(167, 192, 217, 0.12);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  padding-top: 0.55rem;
+  padding-bottom: 0.45rem;
+  padding-left: 0.85rem;
+  padding-right: 0.85rem;
+}
+
+.callout-content {
+  color: var(--text-main);
+  padding-top: 0.35rem;
+}
+
+.callout-title-inner {
+  color: #edf4fb;
+  font-weight: 650;
+}
+
+.callout-icon svg {
+  color: #adc7de;
+}
+
+.callout[data-callout="note"],
+.callout[data-callout="abstract"],
+.callout[data-callout="summary"],
+.callout[data-callout="info"],
+.callout[data-callout="todo"],
+.callout[data-callout="tip"],
+.callout[data-callout="important"] {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(149, 177, 202, 0.11) 0%,
+      rgba(149, 177, 202, 0.06) 100%
+    );
+}
+
+.callout[data-callout="warning"],
+.callout[data-callout="caution"],
+.callout[data-callout="attention"] {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(170, 150, 120, 0.14) 0%,
+      rgba(149, 177, 202, 0.05) 100%
+    );
+}
+
+.callout[data-callout="danger"],
+.callout[data-callout="error"],
+.callout[data-callout="bug"],
+.callout[data-callout="fail"] {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(150, 110, 120, 0.15) 0%,
+      rgba(149, 177, 202, 0.04) 100%
+    );
+}
+
+/* ---------------------------------------------------------
+   12. Search / input / controls
+   --------------------------------------------------------- */
+input,
+textarea,
+button,
+select {
+  font-family: var(--font-text-theme);
+}
+
+.search-input-container input,
+.metadata-input-longtext,
+.prompt-input,
+input[type="text"],
+textarea {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.018) 0%,
+      rgba(255,255,255,0.01) 100%
+    ),
+    var(--bg-2);
+  border: 1px solid rgba(167, 192, 217, 0.16);
+  color: var(--text-main);
+  border-radius: var(--radius-md);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.015);
+}
+
+.search-input-container input:focus,
+.metadata-input-longtext:focus,
+.prompt-input:focus,
+input[type="text"]:focus,
+textarea:focus {
+  border-color: var(--line-strong);
+  box-shadow:
+    0 0 0 1px rgba(167, 192, 217, 0.16),
+    inset 0 1px 0 rgba(255,255,255,0.02);
+}
+
+/* ---------------------------------------------------------
+   13. Spellcheck underline remove
+   --------------------------------------------------------- */
+.cm-misspelling,
+.markdown-source-view.mod-cm6 .cm-misspelling,
+.misspell,
+.is-flashing.spellcheck-underline {
+  text-decoration: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+.cm-editor span[spellcheck],
+.markdown-source-view span[spellcheck] {
+  text-decoration: none !important;
+  box-shadow: none !important;
+}
+
+/* ---------------------------------------------------------
+   14. Mermaid
+   --------------------------------------------------------- */
+.theme-dark .mermaid svg {
+  background: transparent !important;
+}
+
+.theme-dark .mermaid .node rect,
+.theme-dark .mermaid .node circle,
+.theme-dark .mermaid .node ellipse,
+.theme-dark .mermaid .node polygon,
+.theme-dark .mermaid .node path,
+.theme-dark .mermaid .label-container,
+.theme-dark .mermaid .cluster rect {
+  fill: #f4f6f8 !important;
+  stroke: #111111 !important;
+  stroke-width: 1.2px !important;
+}
+
+.theme-dark .mermaid .label,
+.theme-dark .mermaid .label text,
+.theme-dark .mermaid .nodeLabel,
+.theme-dark .mermaid .cluster-label text,
+.theme-dark .mermaid .edgeLabel,
+.theme-dark .mermaid span {
+  color: #111111 !important;
+  fill: #111111 !important;
+}
+
+.theme-dark .mermaid .edgePath path,
+.theme-dark .mermaid .flowchart-link,
+.theme-dark .mermaid .arrowheadPath,
+.theme-dark .mermaid line,
+.theme-dark .mermaid .messageLine0,
+.theme-dark .mermaid .messageLine1 {
+  stroke: #111111 !important;
+  stroke-width: 1.2px !important;
+}
+
+.theme-dark .mermaid .edgeLabel,
+.theme-dark .mermaid .edgeLabel rect {
+  background-color: #f4f6f8 !important;
+  fill: #f4f6f8 !important;
+}
+
+.theme-dark .mermaid .actor,
+.theme-dark .mermaid .actor-line,
+.theme-dark .mermaid .section,
+.theme-dark .mermaid .task,
+.theme-dark .mermaid .taskText {
+  fill: #f4f6f8 !important;
+  stroke: #111111 !important;
+  color: #111111 !important;
+}
+
+/* ---------------------------------------------------------
+   15. Status bar / ribbon / icons
+   --------------------------------------------------------- */
+.status-bar {
+  border-top: 1px solid var(--line-soft);
+  color: var(--text-muted);
+  background-color: var(--bg-1);
+}
+
+.side-dock-ribbon {
+  border-right: 1px solid var(--line-soft);
+  background-color: var(--bg-1);
+}
+
+.side-dock-ribbon-action {
+  color: var(--text-muted);
+}
+
+.side-dock-ribbon-action:hover {
+  color: #eef4fa;
+  background-color: var(--hover-bg);
+  border-radius: var(--radius-md);
+}
+
+/* ---------------------------------------------------------
+   16. Properties / metadata
+   --------------------------------------------------------- */
+.metadata-container {
+  border: 1px solid rgba(167, 192, 217, 0.24);
+  border-radius: var(--radius-lg);
+  padding: 12px 14px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(149, 177, 202, 0.10) 0%,
+      rgba(149, 177, 202, 0.055) 100%
+    );
+  box-shadow: var(--panel-shadow-1), var(--panel-shadow-2);
+}
+
+.metadata-property {
+  border-top: 1px solid rgba(167, 192, 217, 0.10);
+  padding-top: 8px;
+  padding-bottom: 8px;
+  gap: 10px;
+}
+
+.metadata-property:first-child {
+  border-top: none;
+}
+
+.metadata-property-key {
+  color: #b0c9df;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+}
+
+.metadata-property-value {
+  color: #e0e9f2;
+}
+
+.metadata-input,
+.metadata-input-longtext,
+.metadata-property-value input,
+.metadata-property-value textarea {
+  background-color: rgba(16, 22, 29, 0.55) !important;
+  border: 1px solid rgba(167, 192, 217, 0.14) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+}
+
+/* ---------------------------------------------------------
+   17. Embedded note / transclusion / internal panels
+   --------------------------------------------------------- */
+.internal-embed,
+.markdown-embed,
+.file-embed,
+.media-embed,
+.embed-title,
+.workspace-leaf-content[data-type="backlink"] .view-content {
+  border-radius: var(--radius-lg);
+}
+
+.markdown-embed,
+.internal-embed {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(149, 177, 202, 0.075) 0%,
+      rgba(149, 177, 202, 0.035) 100%
+    );
+  border: 1px solid rgba(167, 192, 217, 0.18);
+  box-shadow: var(--panel-shadow-1), var(--panel-shadow-2);
+}
+
+.markdown-embed-title {
+  color: #b3cae0;
+  border-bottom: 1px solid rgba(167, 192, 217, 0.08);
+  background-color: rgba(255,255,255,0.02);
+}
+
+/* ---------------------------------------------------------
+   18. Admonition-like boxes from plugins
+   --------------------------------------------------------- */
+.admonition,
+.block-language-ad-note,
+.block-language-ad-info,
+.block-language-ad-tip,
+.block-language-ad-warning,
+.block-language-ad-danger {
+  border: 1px solid var(--panel-border-2);
+  border-radius: var(--radius-lg);
+  background: var(--panel-bg-2);
+  box-shadow: var(--panel-shadow-1), var(--panel-shadow-2);
+}
+
+/* ---------------------------------------------------------
+   19. Minimal aesthetics polish
+   --------------------------------------------------------- */
+.view-header {
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.view-header-title {
+  color: #e8f0f8;
+}
+
+.clickable-icon,
+.workspace-tab-header-inner-icon,
+.nav-action-button {
+  color: var(--text-muted);
+}
+
+.clickable-icon:hover,
+.workspace-tab-header-inner-icon:hover,
+.nav-action-button:hover {
+  color: #eef4fa;
+  background-color: rgba(149, 177, 202, 0.08);
+  border-radius: var(--radius-sm);
+}
+
+/* ---------------------------------------------------------
+   20. Mobile tuning
+   --------------------------------------------------------- */
+@media (max-width: 768px) {
+  .markdown-rendered p,
+  .markdown-rendered li,
+  .markdown-rendered blockquote,
+  .markdown-rendered table,
+  .markdown-rendered .callout-content,
+  .cm-content {
+    line-height: 1.54 !important;
+  }
+
+  .workspace-tab-header-inner-title {
+    font-size: 0.92rem;
+  }
+
+  .nav-folder-title,
+  .nav-file-title,
+  .tree-item-self {
+    border-radius: 7px;
+  }
+
+  .metadata-container,
+  .callout,
+  .markdown-embed,
+  .internal-embed,
+  .markdown-rendered pre {
+    border-radius: 10px;
+  }
+
+  .metadata-container {
+    padding: 10px 12px;
+  }
+
+  .callout-title {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .markdown-rendered pre {
+    padding: 12px 12px;
+  }
+}
