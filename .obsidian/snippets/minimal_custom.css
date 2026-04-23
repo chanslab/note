@@ -1,0 +1,375 @@
+/* 1. 폰트 및 모바일 대응 (CDN) */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+    --font-interface: "Pretendard", sans-serif;
+    --font-text: "Pretendard", sans-serif;
+    --font-monospace: "D2Coding", "JetBrains Mono", monospace;
+}
+
+.is-mobile {
+    --font-interface: "Pretendard", sans-serif;
+    --font-text: "Pretendard", sans-serif;
+    --font-monospace: "JetBrains Mono", monospace;
+}
+
+/* 2. 데스크탑 전용 (라인 넓이 + 맞춤법 밑줄 제거) */
+.is-desktop {
+    --file-line-width: 52rem; /* 기본보다 약 10% 확장 */
+    
+    .cm-spell-error {
+        background-image: none !important;
+        text-decoration: none !important;
+    }
+}
+
+/* 3. 사이드바 - 계층별 색상 및 고밀도 설정 */
+
+/* [Level 1] 최상위 폴더 및 파일 - 플래티넘 실버 */
+.nav-folder-title, 
+.nav-file-title {
+    color: #f1f5f9 !important;
+    font-weight: 600;
+}
+
+/* [Level 2] 2단계 계층 - 차분한 스틸 블루 */
+.nav-folder-children .nav-folder-title,
+.nav-folder-children .nav-file-title {
+    color: #94a3b8 !important; /* Muted Slate Blue */
+    font-weight: 500;
+}
+
+/* [Level 3] 3단계 계층 - 은은한 뮤트 그린/그레이 */
+.nav-folder-children .nav-folder-children .nav-folder-title,
+.nav-folder-children .nav-folder-children .nav-file-title {
+    color: #717d8c !important; /* Darker Slate */
+}
+
+/* [Level 4+] 4단계 이상 깊은 계층 - 어두운 슬레이트 */
+.nav-folder-children .nav-folder-children .nav-folder-children .nav-folder-title,
+.nav-folder-children .nav-folder-children .nav-folder-children .nav-file-title {
+    color: #475569 !important;
+    font-size: 0.8rem; /* 깊은 계층은 가독성을 위해 살짝 작게 */
+}
+
+/* 폴더와 파일의 구분 (폴더는 조금 더 밝게 강조) */
+.nav-folder-title {
+    filter: brightness(1.2);
+}
+
+/* 마우스 호버 시 전체 계층 공통 피드백 */
+.nav-file-title:hover, .nav-folder-title:hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    color: #ffffff !important;
+    filter: brightness(1.5);
+}
+
+/* 현재 열린 노트 (Active) - 노드 블루 포인트 */
+.nav-file-title.is-active {
+    background-color: rgba(136, 192, 208, 0.12) !important;
+    color: #88c0d0 !important;
+    font-weight: 700 !important;
+    border-right: 2px solid #88c0d0;
+}
+
+/* 사이드바 간격 최소화 (요청 반영) */
+.nav-item-content {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    min-height: 19px !important;
+    margin: -1px 0 !important;
+}
+
+.nav-folder-children {
+    padding-left: 12px !important; /* 들여쓰기 간격 축소 */
+    border-left: 1px solid rgba(255, 255, 255, 0.03) !important;
+}
+
+
+/* 4. Heading 스타일 (구조적 차별화 강화 버전) */
+
+/* H1: 대제목 - 가장 밝고 하단 선으로 영역 구분 */
+.markdown-rendered h1, .cm-header-1 {
+    font-size: 2.3rem !important;
+    color: #88c0d0 !important;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(136, 192, 208, 0.2);
+    margin-top: 2rem !important;
+}
+
+/* H2: 중제목 - 하단 선을 얇게 추가하여 H1과 유사하지만 작게 */
+.markdown-rendered h2, .cm-header-2 {
+    font-size: 1.9rem !important;
+    color: #81a1c1 !important;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(129, 161, 193, 0.15);
+    margin-top: 1.8rem !important;
+}
+
+/* H3: 소주제 - 선 없음, 크기 강조, 상단 여백 확대 */
+.markdown-rendered h3, .cm-header-3 {
+    font-size: 1.65rem !important; /* 크기를 확 키움 */
+    color: #b48ead !important;
+    font-weight: 800 !important; /* 더 두껍게 */
+    margin-top: 1.7rem !important;
+    margin-bottom: 0.8rem !important;
+}
+
+/* H4: 세부 항목 - 이탤릭 적용, 크기 대폭 축소, 왼쪽 강조선 */
+.markdown-rendered h4, .cm-header-4 {
+    font-size: 1.15rem !important; /* 본문과 큰 차이 없는 정도로 축소 */
+    color: #a3be8c !important;
+    border-left: 4px solid rgba(163, 190, 140, 0.4);
+    padding-left: 12px;
+    margin-top: 1.2rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+/* H5: 강조 레이블 - 본문 크기, 밑줄 적용 */
+.markdown-rendered h5, .cm-header-5 {
+    font-size: 1.05rem !important;
+    color: #ebcb8b !important;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    margin-top: 1rem !important;
+}
+
+/* H6: 주석/꼬리표 - 본문보다 작게, 대문자 자간 확장 */
+.markdown-rendered h6, .cm-header-6 {
+    font-size: 0.8rem !important;
+    color: #d8dee9 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    opacity: 0.7;
+}
+
+
+/
+/* 7. 노트 제목 및 시스템 액센트 컬러 변경 */
+
+/* 인라인 제목 (노트 본문 맨 위에 표시되는 제목) */
+.inline-title {
+    color: #f8fafc !important; /* H1과 동일한 플래티넘 실버 */
+    font-weight: 800 !important;
+    letter-spacing: -0.03em !important;
+}
+
+/* 상단 탭 및 뷰 헤더 제목 */
+.view-header-title {
+    color: #cbd5e1 !important; /* 약간 차분한 실버 */
+    font-weight: 600 !important;
+}
+
+/* Minimal 테마의 기본 파란색 액센트를 실버/슬레이트 계열로 변경 */
+/* (링크, 체크박스, 버튼 등의 파란색도 함께 변경됩니다) */
+body {
+    --accent-h: 215; /* 색상(Hue): 블루그레이 톤 */
+    --accent-s: 20%; /* 채도(Saturation): 낮게 조정 */
+    --accent-l: 65%; /* 밝기(Lightness): 은은하게 */
+    
+    /* 직접적인 색상 지정 */
+    --color-accent: #94a3b8 !important;
+    --color-accent-1: #cbd5e1 !important;
+    --color-accent-2: #e2e8f0 !important;
+}
+
+/* 커서 및 선택 영역 색상 조정 (파란색 제거) */
+.cm-cursor {
+    border-left: 2px solid #f8fafc !important;
+}
+.cm-selectionBackground, ::selection {
+    background-color: rgba(148, 163, 184, 0.25) !important;
+}
+
+/* 8. 태그 스타일 (간격 최적화 및 고스트 실버) */
+
+/* [공통] 읽기 모드 및 전체 태그 컨테이너 */
+.tag, a.tag {
+    background-color: rgba(255, 255, 255, 0.05) !important; 
+    color: #cbd5e1 !important; 
+    font-size: 0.75rem !important; 
+    font-weight: 400 !important;
+    
+    /* 전체 여백 조정: 상하 1px, 좌우 5px로 밀착 */
+    padding: 1px 5px !important; 
+    border-radius: 3px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    
+    text-decoration: none !important;
+    display: inline-block;
+    line-height: 1.2;
+}
+
+/* [편집 모드] Live Preview용 상세 간격 조정 */
+/* 전체 태그 요소의 배경/테두리 통합 */
+.cm-s-obsidian span.cm-hashtag {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    color: #cbd5e1 !important;
+    font-family: var(--font-monospace) !important;
+    font-size: 0.75rem !important;
+    padding-top: 1px !important;
+    padding-bottom: 1px !important;
+}
+
+/* # 기호 부분: 오른쪽 여백 제거 */
+.cm-hashtag-begin {
+    padding-left: 4px !important;
+    padding-right: 0px !important;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 태그 이름 부분: 왼쪽 여백 제거 */
+.cm-hashtag-end {
+    padding-left: 0px !important;
+    padding-right: 4px !important;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 마우스 호버 효과 */
+.tag:hover, a.tag:hover, .cm-hashtag:hover {
+    background-color: rgba(255, 255, 255, 0.12) !important;
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+
+/* 4. Mermaid 차트 스타일 (도형 내부 화이트 고정) */
+
+/* Mermaid 컨테이너 중앙 정렬 및 배경 */
+.mermaid {
+    display: flex !important;
+    justify-content: center !important;
+    background-color: transparent !important; /* 노트 배경색 유지 */
+    padding: 20px !important;
+    margin: 1.5rem auto !important;
+}
+
+/* [1] 도형(노드) 배경 및 테두리 강제 설정 */
+.mermaid svg .node rect,
+.mermaid svg .node circle,
+.mermaid svg .node polygon,
+.mermaid svg .node path,
+.mermaid svg .node-base,
+.mermaid svg .cluster rect {
+    fill: #ffffff !important;         /* 도형 바탕: 흰색 */
+    stroke: #000000 !important;       /* 도형 테두리: 검은색 */
+    stroke-width: 2px !important;
+    opacity: 1 !important;
+}
+
+/* [2] 도형 내부 텍스트 강제 설정 (검은색) */
+/* SVG 내부 text 요소 및 HTML로 렌더링되는 label 모두 포함 */
+.mermaid svg text,
+.mermaid svg .label,
+.mermaid svg .nodeLabel,
+.mermaid svg .edgeLabel,
+.mermaid svg .label text,
+.mermaid svg foreignObject div,
+.mermaid svg foreignObject span {
+    fill: #000000 !important;         /* 글씨: 검은색 */
+    color: #000000 !important;        /* HTML 렌더링 대비 */
+    font-weight: 600 !important;
+    font-family: var(--font-interface) !important;
+}
+
+/* [3] 연결 선 및 화살표 (검은색) */
+/* 주의: 노트 배경이 어두우면 검은 선이 안 보일 수 있으나 요청대로 검정 설정 */
+.mermaid svg .edgePath path.path,
+.mermaid svg .edgePath path,
+.mermaid svg .flowchart-link,
+.mermaid svg .marker path {
+    stroke: #000000 !important;       /* 연결 선: 검은색 */
+    stroke-width: 1.5px !important;
+}
+
+/* 화살표 머리(삼각형) 부분 */
+.mermaid svg .marker,
+.mermaid svg .arrowheadPath,
+.mermaid svg [id^="mermaid-"] path {
+    fill: #000000 !important;
+    stroke: #000000 !important;
+}
+
+/* [4] 다크 모드 테마 변수 강제 덮어쓰기 */
+.mermaid svg {
+    --mermaid-node-bg: #ffffff !important;
+    --mermaid-node-border: #000000 !important;
+    --mermaid-label-fg: #000000 !important;
+}
+
+
+/* 9. 표 스타일 (100% 폭 강제 오버라이드) */
+
+/* [1] 모든 모드에서 표와 그 컨테이너를 100%로 확장 */
+.markdown-source-view.mod-cm6 .cm-content table,
+.markdown-source-view.mod-cm6 .cm-table-widget,
+.markdown-rendered table,
+.dataview.table-view-table {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    display: table !important;
+}
+
+/* [2] 편집 모드(Live Preview)에서 표 위젯 박스 자체를 확장 */
+.cm-table-widget, 
+.cm-embed-block {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* [3] 표 헤더 및 본문 스타일 (기존 스타일 유지 및 보완) */
+.markdown-rendered thead,
+.cm-table-widget thead {
+    background-color: rgba(129, 161, 193, 0.15) !important;
+}
+
+.markdown-rendered th,
+.cm-table-widget th {
+    color: #e2e8f0 !important;
+    font-weight: 700 !important;
+    text-align: center !important; /* 헤더는 항상 중앙 정렬 */
+    padding: 12px !important;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+.markdown-rendered td,
+.cm-table-widget td {
+    padding: 10px 12px !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    vertical-align: middle;
+}
+
+/* 짝수 행 배경색 */
+.markdown-rendered tbody tr:nth-child(even),
+.cm-table-widget tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.02) !important;
+}
+
+/* 9. 표 스타일 - 셀 높이 최적화 */
+.markdown-rendered td,
+.cm-table-widget td,
+.markdown-rendered th,
+.cm-table-widget th {
+    /* 상하 패딩을 10px -> 5px로 줄여 높이 축소 */
+    padding: 5px 10px !important; 
+    line-height: 1.4 !important; /* 행간도 살짝 조절 */
+}
+
+/* 표의 전체적인 긴장감을 위해 헤더 높이도 함께 조정 */
+.markdown-rendered th,
+.cm-table-widget th {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+}
