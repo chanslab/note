@@ -2,7 +2,7 @@
   "promptDelete": false,
   "newFileLocation": "folder",
   "attachmentFolderPath": "Attachment",
-  "newFileFolderPath": "100.Income",
+  "newFileFolderPath": "100.Inbox",
   "alwaysUpdateLinks": true,
   "readableLineLength": true,
   "propertiesInDocument": "visible",
