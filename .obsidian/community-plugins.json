@@ -1,11 +1,13 @@
 [
   "calendar",
   "periodic-notes",
+  "obsidian-latex-suite",
   "obsidian-excalidraw-plugin",
   "dataview",
   "table-editor-obsidian",
   "obsidian-git",
   "obsidian-style-settings",
   "meld-encrypt",
-  "mermaid-tools"
+  "mermaid-tools",
+  "whisper"
 ]
