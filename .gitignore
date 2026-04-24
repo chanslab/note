@@ -16,3 +16,6 @@ Thumbs.db
 
 # Directory
 800.Reference/
+# .gitignore 파일에 추가
+.obsidian.mobile/
+
