@@ -1,0 +1,316 @@
+/* =========================================
+   Obsidian Dark Theme - Custom Readability Pack
+   - 본문 기본 가독성 조정
+   - H1: 왼쪽 은색 바
+   - H2: 언더라인
+   - H1~H6: 본문보다 큰 크기 유지
+   - Reading View Heading 간격 압축
+   - Tag Badge 스타일 적용
+   - Reading View / Live Preview 모두 반영
+   ========================================= */
+
+
+/* =========================================
+   1. 본문 기본
+   ========================================= */
+
+body,
+.markdown-preview-view,
+.markdown-source-view {
+  color: #d7d7dc;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+/* Live Preview / Source Mode 본문 */
+.cm-s-obsidian .cm-line {
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+/* Reading View 문단 간격 */
+.markdown-preview-view p {
+  margin-top: 0 !important;
+  margin-bottom: 0.35em !important;
+  line-height: 1.45 !important;
+}
+
+
+/* =========================================
+   2. Heading 공통
+   ========================================= */
+
+.markdown-preview-view h1,
+.markdown-preview-view h2,
+.markdown-preview-view h3,
+.markdown-preview-view h4,
+.markdown-preview-view h5,
+.markdown-preview-view h6,
+.cm-header {
+  font-weight: 750 !important;
+  letter-spacing: -0.018em;
+  line-height: 1.22 !important;
+}
+
+
+/* =========================================
+   3. Reading View Heading
+   ========================================= */
+
+/* H1: 왼쪽 은색 바 */
+.markdown-preview-view h1 {
+  position: relative;
+  color: #7fb4ff;
+  font-size: 1.85em !important;
+  margin-top: 0.65em !important;
+  margin-bottom: 0.135em !important;
+  padding-left: 0.72em;
+  border-bottom: none !important;
+}
+
+.markdown-preview-view h1::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  width: 5px;
+  height: 1.02em;
+  border-radius: 0;
+  background: #c0c0c0;
+  box-shadow: 0 0 8px rgba(192, 192, 192, 0.25);
+}
+
+/* H2: 언더라인 */
+.markdown-preview-view h2 {
+  color: #6ee7d8;
+  font-size: 1.55em !important;
+  margin-top: 0.75em !important;
+  margin-bottom: 0.12em !important;
+  padding-bottom: 0.08em !important;
+  border-bottom: 1px solid rgba(110, 231, 216, 0.38) !important;
+}
+
+/* H3 */
+.markdown-preview-view h3 {
+  color: #b7a6ff;
+  font-size: 1.35em !important;
+  margin-top: 0.65em !important;
+  margin-bottom: 0.075em !important;
+}
+
+/* H4 */
+.markdown-preview-view h4 {
+  color: #9ee6a8;
+  font-size: 1.22em !important;
+  margin-top: 0.55em !important;
+  margin-bottom: 0.07em !important;
+}
+
+/* H5 */
+.markdown-preview-view h5 {
+  color: #ffd37a;
+  font-size: 1.12em !important;
+  margin-top: 0.5em !important;
+  margin-bottom: 0.06em !important;
+}
+
+/* H6 */
+.markdown-preview-view h6 {
+  color: #f4a3b8;
+  font-size: 1.06em !important;
+  margin-top: 0.45em !important;
+  margin-bottom: 0.05em !important;
+  opacity: 0.95;
+}
+
+/* Heading 바로 다음 문단 간격 보정 */
+.markdown-preview-view h1 + p,
+.markdown-preview-view h2 + p,
+.markdown-preview-view h3 + p,
+.markdown-preview-view h4 + p,
+.markdown-preview-view h5 + p,
+.markdown-preview-view h6 + p {
+  margin-top: 0.05em !important;
+}
+
+
+/* =========================================
+   4. Live Preview Heading
+   ========================================= */
+
+/* H1 */
+.cm-header-1 {
+  color: #7fb4ff !important;
+  font-size: 1.85em !important;
+  font-weight: 750 !important;
+}
+
+.HyperMD-header-1 {
+  position: relative !important;
+  padding-left: 0.72em !important;
+  padding-top: 0.35em !important;
+  padding-bottom: 0.09em !important;
+}
+
+.HyperMD-header-1::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.48em;
+  width: 5px;
+  height: 1.18em;
+  border-radius: 0;
+  background: #c0c0c0;
+  box-shadow: 0 0 8px rgba(192, 192, 192, 0.25);
+}
+
+/* H2 */
+.cm-header-2 {
+  color: #6ee7d8 !important;
+  font-size: 1.55em !important;
+  font-weight: 750 !important;
+}
+
+.HyperMD-header-2 {
+  padding-top: 0.3em !important;
+  padding-bottom: 0.18em !important;
+  margin-bottom: 0.12em !important;
+  border-bottom: 1px solid rgba(110, 231, 216, 0.38) !important;
+}
+
+/* H3 */
+.cm-header-3 {
+  color: #b7a6ff !important;
+  font-size: 1.35em !important;
+  font-weight: 750 !important;
+}
+
+/* H4 */
+.cm-header-4 {
+  color: #9ee6a8 !important;
+  font-size: 1.22em !important;
+  font-weight: 750 !important;
+}
+
+/* H5 */
+.cm-header-5 {
+  color: #ffd37a !important;
+  font-size: 1.12em !important;
+  font-weight: 750 !important;
+}
+
+/* H6 */
+.cm-header-6 {
+  color: #f4a3b8 !important;
+  font-size: 1.06em !important;
+  font-weight: 750 !important;
+}
+
+/* H3~H6 Live Preview 줄 간격 */
+.HyperMD-header-3,
+.HyperMD-header-4,
+.HyperMD-header-5,
+.HyperMD-header-6 {
+  padding-top: 0.18em !important;
+  padding-bottom: 0.04em !important;
+}
+
+
+/* =========================================
+   5. Tag Badge - Reading View
+   ========================================= */
+
+.markdown-preview-view a.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.16em 0.55em;
+  margin: 0 0.12em;
+  border-radius: 999px;
+
+  color: #dbeafe !important;
+  background: rgba(96, 165, 250, 0.16);
+  border: 1px solid rgba(147, 197, 253, 0.35);
+
+  font-size: 0.88em;
+  font-weight: 600;
+  line-height: 1.45;
+  text-decoration: none !important;
+
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.02) inset;
+}
+
+.markdown-preview-view a.tag:hover {
+  color: #ffffff !important;
+  background: rgba(96, 165, 250, 0.26);
+  border-color: rgba(147, 197, 253, 0.58);
+  text-decoration: none !important;
+}
+
+
+/* =========================================
+   6. Tag Badge - Live Preview
+   - # 과 태그명이 분리되어 보이는 문제 보정
+   ========================================= */
+
+/* Live Preview 태그 공통 */
+.cm-s-obsidian .cm-hashtag {
+  color: #dbeafe !important;
+  background: rgba(96, 165, 250, 0.16);
+  border-top: 1px solid rgba(147, 197, 253, 0.35);
+  border-bottom: 1px solid rgba(147, 197, 253, 0.35);
+  font-size: 0.88em;
+  font-weight: 600;
+  line-height: 1.45;
+  text-decoration: none !important;
+}
+
+/* # 부분 */
+.cm-s-obsidian .cm-hashtag.cm-hashtag-begin {
+  display: inline-block;
+  padding: 0.08em 0.08em 0.08em 0.5em;
+  border-left: 1px solid rgba(147, 197, 253, 0.35);
+  border-right: none;
+  border-radius: 999px 0 0 999px;
+}
+
+/* 태그명 부분 */
+.cm-s-obsidian .cm-hashtag.cm-hashtag-end {
+  display: inline-block;
+  padding: 0.08em 0.5em 0.08em 0.05em;
+  border-right: 1px solid rgba(147, 197, 253, 0.35);
+  border-left: none;
+  border-radius: 0 999px 999px 0;
+}
+
+/* begin/end로 안 나뉘는 태그 보정 */
+.cm-s-obsidian .cm-hashtag:not(.cm-hashtag-begin):not(.cm-hashtag-end) {
+  display: inline-block;
+  padding: 0.08em 0.5em;
+  border: 1px solid rgba(147, 197, 253, 0.35);
+  border-radius: 999px;
+}
+
+/* Hover */
+.cm-s-obsidian .cm-hashtag:hover {
+  color: #ffffff !important;
+  background: rgba(96, 165, 250, 0.26);
+}
+
+/* =========================================
+   보조 영문 표기
+   예: 사과(<span class="sub-word">Apple</span>)
+   ========================================= */
+
+.markdown-preview-view .sub-word {
+  font-size: 1em;
+  color: #aeb4c0;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.cm-s-obsidian .sub-word {
+  font-size: 1em;
+  color: #aeb4c0;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
