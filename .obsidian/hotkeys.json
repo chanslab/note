@@ -54,5 +54,13 @@
       ],
       "key": "S"
     }
+  ],
+  "editor:toggle-highlight": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "H"
+    }
   ]
 }

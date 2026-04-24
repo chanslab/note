@@ -314,3 +314,82 @@ body,
   font-weight: 500;
   letter-spacing: 0.01em;
 }
+
+
+/* =========================================
+   Live Preview Only - Callout Compact Fix
+   - 라이브 프리뷰에서만 콜아웃이 크게 보이는 문제 보정
+   ========================================= */
+
+/* Live Preview 콜아웃 전체 */
+.markdown-source-view.mod-cm6 .callout {
+  padding: 0.45em 0.6em !important;
+  margin: 0.45em 0 !important;
+  border-radius: 8px !important;
+}
+
+/* Live Preview 콜아웃 제목 영역 */
+.markdown-source-view.mod-cm6 .callout-title {
+  padding: 0 !important;
+  gap: 0.3em !important;
+  min-height: unset !important;
+  line-height: 1.2 !important;
+}
+
+/* Live Preview 콜아웃 제목 텍스트 */
+.markdown-source-view.mod-cm6 .callout-title-inner {
+  font-size: 0.88em !important;
+  line-height: 1.2 !important;
+  font-weight: 700 !important;
+}
+
+/* Live Preview 콜아웃 아이콘 */
+.markdown-source-view.mod-cm6 .callout-icon {
+  width: 14px !important;
+  height: 14px !important;
+  flex: 0 0 14px !important;
+}
+
+.markdown-source-view.mod-cm6 .callout-icon svg {
+  width: 14px !important;
+  height: 14px !important;
+}
+
+/* Live Preview 접기 아이콘 */
+.markdown-source-view.mod-cm6 .callout-fold {
+  width: 14px !important;
+  height: 14px !important;
+}
+
+/* Live Preview 콜아웃 본문 */
+.markdown-source-view.mod-cm6 .callout-content {
+  margin-top: 0.25em !important;
+  padding: 0 !important;
+  font-size: 0.9em !important;
+  line-height: 1.35 !important;
+}
+
+/* Live Preview 콜아웃 안 문단 */
+.markdown-source-view.mod-cm6 .callout-content p {
+  margin-top: 0 !important;
+  margin-bottom: 0.25em !important;
+  line-height: 1.35 !important;
+}
+
+/* 마지막 문단 여백 제거 */
+.markdown-source-view.mod-cm6 .callout-content p:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Live Preview 콜아웃 안 리스트 */
+.markdown-source-view.mod-cm6 .callout-content ul,
+.markdown-source-view.mod-cm6 .callout-content ol {
+  margin-top: 0.2em !important;
+  margin-bottom: 0.2em !important;
+  padding-left: 1.25em !important;
+}
+
+.markdown-source-view.mod-cm6 .callout-content li {
+  margin: 0.08em 0 !important;
+  line-height: 1.35 !important;
+}
