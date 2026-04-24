@@ -87,65 +87,101 @@
 }
 
 
-/* 4. Heading 스타일 (구조적 차별화 강화 버전) */
+/* 4. Heading 스타일 - 본문과 크기 구분 강화 / 자연스러운 버전 */
 
-/* H1: 대제목 - 가장 밝고 하단 선으로 영역 구분 */
-.markdown-rendered h1, .cm-header-1 {
-    font-size: 2.3rem !important;
-    color: #88c0d0 !important;
-    padding-bottom: 10px;
-    border-bottom: 2px solid rgba(136, 192, 208, 0.2);
-    margin-top: 2rem !important;
+/* 본문 기본 크기 기준 */
+.markdown-rendered,
+.markdown-source-view.mod-cm6 .cm-content {
+    font-size: 16px !important;
+    line-height: 1.55 !important;
 }
 
-/* H2: 중제목 - 하단 선을 얇게 추가하여 H1과 유사하지만 작게 */
-.markdown-rendered h2, .cm-header-2 {
-    font-size: 1.9rem !important;
-    color: #81a1c1 !important;
-    padding-bottom: 5px;
-    border-bottom: 1px solid rgba(129, 161, 193, 0.15);
+/* 공통 Heading 설정 */
+.markdown-rendered h1,
+.markdown-rendered h2,
+.markdown-rendered h3,
+.markdown-rendered h4,
+.markdown-rendered h5,
+.markdown-rendered h6,
+.cm-header-1,
+.cm-header-2,
+.cm-header-3,
+.cm-header-4,
+.cm-header-5,
+.cm-header-6 {
+    font-family: var(--font-text) !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.025em !important;
+    line-height: 1.25 !important;
+}
+
+/* H1: 문서 대제목 - 밑줄 겹침 방지 */
+.markdown-rendered h1,
+.cm-header-1 {
+    font-size: 2.15rem !important;
+    color: #93c5fd !important;
+    margin-top: 2.4rem !important;
+    margin-bottom: 1.4rem !important;   /* 본문과 간격 확보 */
+    padding-bottom: 0.65rem !important; /* 제목과 밑줄 사이 간격 */
+    border-bottom: 2px solid rgba(147, 197, 253, 0.28) !important;
+    line-height: 1.3 !important;
+}
+
+/* H2: 큰 장 구분 */
+.markdown-rendered h2,
+.cm-header-2 {
+    font-size: 1.75rem !important;
+    color: #bfdbfe !important;
+    margin-top: 2.1rem !important;
+    margin-bottom: 0.9rem !important;
+    padding-bottom: 0.35rem !important;
+    border-bottom: 1px solid rgba(191, 219, 254, 0.22) !important;
+}
+
+/* H3: 소주제 */
+.markdown-rendered h3,
+.cm-header-3 {
+    font-size: 1.45rem !important;
+    color: #c4b5fd !important;
     margin-top: 1.8rem !important;
+    margin-bottom: 0.75rem !important;
 }
 
-/* H3: 소주제 - 선 없음, 크기 강조, 상단 여백 확대 */
-.markdown-rendered h3, .cm-header-3 {
-    font-size: 1.65rem !important; /* 크기를 확 키움 */
-    color: #b48ead !important;
-    font-weight: 800 !important; /* 더 두껍게 */
-    margin-top: 1.7rem !important;
-    margin-bottom: 0.8rem !important;
+/* H4: 세부 항목 - 본문보다 확실히 크게 */
+.markdown-rendered h4,
+.cm-header-4 {
+    font-size: 1.25rem !important;
+    color: #a7f3d0 !important;
+    margin-top: 1.5rem !important;
+    margin-bottom: 0.6rem !important;
+    padding-left: 0.7rem !important;
+    border-left: 4px solid rgba(167, 243, 208, 0.45) !important;
 }
 
-/* H4: 세부 항목 - 이탤릭 적용, 크기 대폭 축소, 왼쪽 강조선 */
-.markdown-rendered h4, .cm-header-4 {
-    font-size: 1.15rem !important; /* 본문과 큰 차이 없는 정도로 축소 */
-    color: #a3be8c !important;
-    border-left: 4px solid rgba(163, 190, 140, 0.4);
-    padding-left: 12px;
-    margin-top: 1.2rem !important;
-    margin-bottom: 0.5rem !important;
+/* H5: 보조 항목 */
+.markdown-rendered h5,
+.cm-header-5 {
+    font-size: 1.12rem !important;
+    color: #fde68a !important;
+    margin-top: 1.25rem !important;
+    margin-bottom: 0.45rem !important;
+    font-weight: 750 !important;
 }
 
-/* H5: 강조 레이블 - 본문 크기, 밑줄 적용 */
-.markdown-rendered h5, .cm-header-5 {
-    font-size: 1.05rem !important;
-    color: #ebcb8b !important;
-    text-decoration: underline;
-    text-underline-offset: 4px;
+/* H6: 작은 라벨이지만 본문과 구분 */
+.markdown-rendered h6,
+.cm-header-6 {
+    font-size: 0.95rem !important;
+    color: #cbd5e1 !important;
     margin-top: 1rem !important;
-}
-
-/* H6: 주석/꼬리표 - 본문보다 작게, 대문자 자간 확장 */
-.markdown-rendered h6, .cm-header-6 {
-    font-size: 0.8rem !important;
-    color: #d8dee9 !important;
+    margin-bottom: 0.35rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    opacity: 0.85 !important;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
-    opacity: 0.7;
 }
 
 
-/
 /* 7. 노트 제목 및 시스템 액센트 컬러 변경 */
 
 /* 인라인 제목 (노트 본문 맨 위에 표시되는 제목) */
