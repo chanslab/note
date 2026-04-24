@@ -1,0 +1,175 @@
+/* =========================================
+   Obsidian Dark Theme - Heading 크게 보정
+   - H1: 왼쪽 컬러 바
+   - H2: 언더라인
+   - 실제 Obsidian에서 작게 보이는 문제 보정
+   ========================================= */
+
+/* 본문 기본 */
+body,
+.markdown-preview-view,
+.markdown-source-view {
+  color: #d7d7dc;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+/* Live Preview / Source Mode 본문 */
+.cm-s-obsidian .cm-line {
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+/* Heading 공통 */
+.markdown-preview-view h1,
+.markdown-preview-view h2,
+.markdown-preview-view h3,
+.markdown-preview-view h4,
+.markdown-preview-view h5,
+.markdown-preview-view h6,
+.cm-header {
+  font-weight: 750 !important;
+  letter-spacing: -0.018em;
+  line-height: 1.25;
+}
+
+/* =========================
+   Reading View
+   ========================= */
+
+/* Reading View - H1 왼쪽 컬러 바 */
+
+.markdown-preview-view h1::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.13em;
+  width: 6px;
+  height: 1.08em;
+  border-radius: 0px;
+  background: #7fb4ff;
+  box-shadow: 0 0 12px rgba(127, 180, 255, 0.35);
+}
+
+/* H2: 언더라인 */
+.markdown-preview-view h2 {
+  color: #6ee7d8;
+  font-size: 1.95em !important;
+  margin-top: 1.65em;
+  margin-bottom: 0.7em;
+  padding-bottom: 0.35em;
+  border-bottom: 1px solid rgba(110, 231, 216, 0.38);
+}
+
+/* H3 */
+.markdown-preview-view h3 {
+  color: #b7a6ff;
+  font-size: 1.62em !important;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+/* H4 */
+.markdown-preview-view h4 {
+  color: #9ee6a8;
+  font-size: 1.36em !important;
+  margin-top: 1.35em;
+  margin-bottom: 0.45em;
+}
+
+/* H5 */
+.markdown-preview-view h5 {
+  color: #ffd37a;
+  font-size: 1.18em !important;
+  margin-top: 1.25em;
+  margin-bottom: 0.4em;
+}
+
+/* H6 */
+.markdown-preview-view h6 {
+  color: #f4a3b8;
+  font-size: 1.05em !important;
+  margin-top: 1.15em;
+  margin-bottom: 0.35em;
+  opacity: 0.95;
+}
+
+/* =========================
+   Live Preview
+   ========================= */
+
+/* H1 */
+.cm-header-1 {
+  color: #7fb4ff !important;
+  font-size: 3.45em !important;
+  font-weight: 750 !important;
+}
+
+.HyperMD-header-1 {
+  position: relative !important;
+  padding-left: 0.75em !important;
+  padding-top: 0.5em !important;
+  padding-bottom: 0.4em !important;
+}
+
+.HyperMD-header-1::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 6px;
+  height: 1.45em;
+  border-radius: 0;
+  background: #c0c0c0; /* 은색 */
+  box-shadow: 0 0 10px rgba(192, 192, 192, 0.28);
+}
+
+/* H2 */
+.cm-header-2 {
+  color: #6ee7d8 !important;
+  font-size: 1.95em !important;
+  font-weight: 750 !important;
+}
+
+.HyperMD-header-2 {
+  padding-top: 0.4em !important;
+  padding-bottom: 0.4em !important;
+  border-bottom: 1px solid rgba(110, 231, 216, 0.38) !important;
+}
+
+/* H3 */
+.cm-header-3 {
+  color: #b7a6ff !important;
+  font-size: 1.62em !important;
+  font-weight: 750 !important;
+}
+
+/* H4 */
+.cm-header-4 {
+  color: #9ee6a8 !important;
+  font-size: 1.36em !important;
+  font-weight: 750 !important;
+}
+
+/* H5 */
+.cm-header-5 {
+  color: #ffd37a !important;
+  font-size: 1.18em !important;
+  font-weight: 750 !important;
+}
+
+/* H6 */
+.cm-header-6 {
+  color: #f4a3b8 !important;
+  font-size: 1.05em !important;
+  font-weight: 750 !important;
+}
+
+/* H3~H6 줄 간격 */
+.HyperMD-header-3,
+.HyperMD-header-4,
+.HyperMD-header-5,
+.HyperMD-header-6 {
+  padding-top: 0.25em !important;
+  padding-bottom: 0.15em !important;
+}
