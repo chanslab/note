@@ -1,3 +1,5 @@
+#FOMO
+
 FOMO(Fearing of missing out)
 '유행에 뒤쳐지는 것에 대한 공포 심리'
 '소외되는 것에 대한 불안감'
