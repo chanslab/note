@@ -2,12 +2,12 @@
   "cssTheme": "Minimal",
   "theme": "obsidian",
   "textFontFamily": "Pretendard",
-  "baseFontSize": 18,
+  "baseFontSize": 16,
   "baseFontSizeAction": true,
   "enabledCssSnippets": [
     "minimal_custom",
     "claude-minimal-dark",
-    "minimal_dark_gpt"
+    "minimal-dark-custom"
   ],
   "monospaceFontFamily": "D2Coding",
   "interfaceFontFamily": "Pretendard"

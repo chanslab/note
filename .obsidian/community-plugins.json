@@ -1,16 +1,9 @@
 [
   "calendar",
-  "periodic-notes",
-  "obsidian-latex-suite",
   "obsidian-excalidraw-plugin",
-  "dataview",
-  "table-editor-obsidian",
   "obsidian-git",
   "obsidian-style-settings",
   "meld-encrypt",
-  "mermaid-tools",
-  "whisper",
-  "obsidian-hider",
-  "obsidian-minimal-settings",
-  "templater-obsidian"
+  "templater-obsidian",
+  "obsidian-minimal-settings"
 ]

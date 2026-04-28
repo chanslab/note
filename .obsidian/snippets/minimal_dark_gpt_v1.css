@@ -1,0 +1,964 @@
+/* =========================================================
+   Minimal Dark + Atom Custom CSS
+   ---------------------------------------------------------
+   환경
+   - Obsidian Minimal Theme
+   - Minimal Theme Settings Plugin
+   - Dark mode color scheme: Atom
+
+   원칙
+   - 전체 배경색은 변경하지 않음
+   - 기본 폰트: Pretendard
+   - 코드 폰트: JetBrains Mono
+   - Live Preview / Reading View 최대한 동일하게 조정
+   ========================================================= */
+
+
+/* =========================================================
+   01. Web Fonts
+   ========================================================= */
+
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap");
+
+
+/* =========================================================
+   02. Variables
+   ========================================================= */
+
+body {
+  /* Font */
+  --font-text: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-interface: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-monospace: "JetBrains Mono", "D2Coding", "SFMono-Regular", Consolas, monospace;
+
+  /* Text */
+  --text-normal: #d5dae3;
+  --text-muted: #a8b0bd;
+  --text-faint: #7f8794;
+
+  --text-accent: #8fb2ff;
+  --text-accent-hover: #a9c4ff;
+
+  --bold-color: #eef2f8;
+  --italic-color: #d5dae3;
+
+  --link-color: #8fb2ff;
+  --link-color-hover: #b5ccff;
+  --link-external-color: #8fb2ff;
+  --link-external-color-hover: #b5ccff;
+
+  --inline-code-color: #e1e6ef;
+
+  /* Body */
+  --jc-body-font-size: 16px;
+  --jc-body-line-height: 1.55;
+
+  /* Heading Size */
+  --jc-h1-size: 1.55em;
+  --jc-h2-size: 1.38em;
+  --jc-h3-size: 1.22em;
+  --jc-h4-size: 1.08em;
+  --jc-h5-size: 0.98em;
+  --jc-h6-size: 0.82em;
+
+  /* Heading Color */
+  --jc-h1-color: #dce7f6;
+  --jc-h2-color: #c9dcf5;
+  --jc-h3-color: #b9cdea;
+  --jc-h4-color: #aabdd8;
+  --jc-h5-color: #9caec8;
+  --jc-h6-color: #8f9fb8;
+
+  /* Heading Spacing */
+  --jc-heading-line-height: 1.18;
+  --jc-heading-space-large: 1.2em;
+  --jc-heading-space-medium: 0.85em;
+  --jc-heading-space-small: 0.45em;
+  --jc-heading-space-no-content: 0.25em;
+  --jc-heading-space-bottom: 0.28em;
+
+  /* Heading Decoration */
+  --jc-heading-line-soft: rgba(143, 178, 255, 0.34);
+  --jc-heading-line-fade: rgba(143, 178, 255, 0.42);
+  --jc-heading-line-fade-end: rgba(143, 178, 255, 0);
+  --jc-heading-line-thickness: 1px;
+  --jc-heading-line-gap: 0.28em;
+
+  /* Tag */
+  --jc-tag-bg: #4f82f2;
+  --jc-tag-bg-hover: #6797ff;
+  --jc-tag-text: #ffffff;
+  --jc-tag-radius: 5px;
+  --jc-tag-font-size: 12px;
+  --jc-tag-line-height: 1;
+  --jc-tag-padding-y: 3px;
+  --jc-tag-padding-x: 7px;
+  --jc-tag-gap: 6px;
+
+  /* Callout */
+  --jc-callout-bg: rgba(94, 111, 128, 0.18);
+  --jc-callout-border: rgba(148, 163, 184, 0.22);
+  --jc-callout-title: #c8d3e3;
+  --jc-callout-text: #d5dae3;
+  --jc-callout-icon: #8fb2ff;
+
+  /* Sidebar */
+  --jc-sidebar-text: #b8c2d0;
+  --jc-sidebar-text-hover: #d5dae3;
+  --jc-sidebar-text-active: #e1e6ef;
+  --jc-sidebar-folder-text: #c0cad8;
+  --jc-sidebar-muted: #8f9bad;
+
+  /* Sub Word */
+  --jc-sub-word-color: #9caec8;
+  --jc-sub-word-font-size: 0.85em;
+  --jc-sub-word-font-weight: 500;
+  --jc-sub-word-opacity: 0.9;
+}
+
+
+/* =========================================================
+   03. Font / Base Text
+   ========================================================= */
+
+.workspace,
+.markdown-source-view,
+.markdown-preview-view,
+.cm-editor,
+.cm-content,
+.view-content,
+.nav-folder-title,
+.nav-file-title,
+.metadata-container,
+.modal,
+.prompt,
+.menu,
+.setting-item,
+.community-plugin-item {
+  font-family: var(--font-text) !important;
+}
+
+.markdown-source-view.mod-cm6 .cm-content,
+.markdown-source-view.mod-cm6 .cm-line,
+.markdown-preview-view,
+.markdown-rendered {
+  font-size: var(--jc-body-font-size) !important;
+  line-height: var(--jc-body-line-height) !important;
+}
+
+.markdown-source-view,
+.markdown-preview-view,
+.cm-content,
+.markdown-preview-section,
+.cm-s-obsidian,
+.cm-line,
+.markdown-preview-view p,
+.markdown-preview-view li,
+.markdown-preview-view table,
+.markdown-preview-view blockquote {
+  color: var(--text-normal) !important;
+}
+
+.markdown-preview-view p,
+.markdown-rendered p {
+  margin-top: 0.35em !important;
+  margin-bottom: 0.35em !important;
+}
+
+.markdown-preview-view .footnote,
+.markdown-preview-view .metadata-container,
+.cm-comment,
+.cm-meta,
+.cm-hr,
+.setting-item-description,
+.community-plugin-desc,
+.nav-file-tag,
+.nav-folder-collapse-indicator {
+  color: var(--text-muted) !important;
+}
+
+
+/* =========================================================
+   04. Link / Bold / Italic
+   ========================================================= */
+
+.markdown-preview-view a,
+.cm-hmd-internal-link,
+.cm-link,
+.cm-url {
+  color: var(--link-color) !important;
+}
+
+.markdown-preview-view a:hover,
+.cm-hmd-internal-link:hover,
+.cm-link:hover,
+.cm-url:hover {
+  color: var(--link-color-hover) !important;
+}
+
+.markdown-preview-view strong,
+.cm-strong {
+  color: var(--bold-color) !important;
+  font-weight: 700 !important;
+}
+
+.markdown-preview-view em,
+.cm-em {
+  color: var(--italic-color) !important;
+}
+
+
+/* =========================================================
+   05. Code Font
+   ========================================================= */
+
+.markdown-preview-view code,
+.markdown-source-view code,
+.cm-inline-code,
+.HyperMD-codeblock,
+.markdown-rendered pre,
+.markdown-rendered code {
+  font-family: var(--font-monospace) !important;
+}
+
+.markdown-preview-view :not(pre) > code,
+.cm-inline-code {
+  color: var(--inline-code-color) !important;
+  font-size: 0.82em !important;
+}
+
+
+/* =========================================================
+   06. Heading
+   ========================================================= */
+
+/* Reading View */
+.markdown-preview-view h1,
+.markdown-rendered h1,
+.markdown-preview-view h2,
+.markdown-rendered h2,
+.markdown-preview-view h3,
+.markdown-rendered h3,
+.markdown-preview-view h4,
+.markdown-rendered h4,
+.markdown-preview-view h5,
+.markdown-rendered h5,
+.markdown-preview-view h6,
+.markdown-rendered h6 {
+  line-height: var(--jc-heading-line-height) !important;
+  margin-top: var(--jc-heading-space-no-content) !important;
+  margin-bottom: var(--jc-heading-space-bottom) !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  font-weight: 700 !important;
+}
+
+/* Live Preview */
+.markdown-source-view.mod-cm6 .HyperMD-header,
+.markdown-source-view.mod-cm6 .cm-header {
+  line-height: var(--jc-heading-line-height) !important;
+  padding-top: var(--jc-heading-space-no-content) !important;
+  padding-bottom: var(--jc-heading-space-bottom) !important;
+  font-weight: 700 !important;
+  min-height: unset !important;
+}
+
+/* H1 */
+.markdown-preview-view h1,
+.markdown-rendered h1,
+.markdown-source-view.mod-cm6 .HyperMD-header-1,
+.markdown-source-view.mod-cm6 .cm-header-1 {
+  font-size: var(--jc-h1-size) !important;
+  color: var(--jc-h1-color) !important;
+}
+
+/* H2 */
+.markdown-preview-view h2,
+.markdown-rendered h2,
+.markdown-source-view.mod-cm6 .HyperMD-header-2,
+.markdown-source-view.mod-cm6 .cm-header-2 {
+  font-size: var(--jc-h2-size) !important;
+  color: var(--jc-h2-color) !important;
+}
+
+/* H3 */
+.markdown-preview-view h3,
+.markdown-rendered h3,
+.markdown-source-view.mod-cm6 .HyperMD-header-3,
+.markdown-source-view.mod-cm6 .cm-header-3 {
+  font-size: var(--jc-h3-size) !important;
+  color: var(--jc-h3-color) !important;
+}
+
+/* H4 */
+.markdown-preview-view h4,
+.markdown-rendered h4,
+.markdown-source-view.mod-cm6 .HyperMD-header-4,
+.markdown-source-view.mod-cm6 .cm-header-4 {
+  font-size: var(--jc-h4-size) !important;
+  color: var(--jc-h4-color) !important;
+}
+
+/* H5 */
+.markdown-preview-view h5,
+.markdown-rendered h5,
+.markdown-source-view.mod-cm6 .HyperMD-header-5,
+.markdown-source-view.mod-cm6 .cm-header-5 {
+  font-size: var(--jc-h5-size) !important;
+  color: var(--jc-h5-color) !important;
+}
+
+/* H6 */
+.markdown-preview-view h6,
+.markdown-rendered h6,
+.markdown-source-view.mod-cm6 .HyperMD-header-6,
+.markdown-source-view.mod-cm6 .cm-header-6 {
+  font-size: var(--jc-h6-size) !important;
+  color: var(--jc-h6-color) !important;
+}
+
+
+/* =========================================================
+   07. Heading Context Spacing
+   ========================================================= */
+
+/* Reading View: 위에 내용이 있을 때 H1~H2 */
+.markdown-preview-view :is(p, ul, ol, blockquote, table, pre, .callout) + h1,
+.markdown-rendered :is(p, ul, ol, blockquote, table, pre, .callout) + h1,
+.markdown-preview-view :is(p, ul, ol, blockquote, table, pre, .callout) + h2,
+.markdown-rendered :is(p, ul, ol, blockquote, table, pre, .callout) + h2 {
+  margin-top: var(--jc-heading-space-large) !important;
+}
+
+/* Reading View: 위에 내용이 있을 때 H3~H4 */
+.markdown-preview-view :is(p, ul, ol, blockquote, table, pre, .callout) + h3,
+.markdown-rendered :is(p, ul, ol, blockquote, table, pre, .callout) + h3,
+.markdown-preview-view :is(p, ul, ol, blockquote, table, pre, .callout) + h4,
+.markdown-rendered :is(p, ul, ol, blockquote, table, pre, .callout) + h4 {
+  margin-top: var(--jc-heading-space-medium) !important;
+}
+
+/* Reading View: 위에 내용이 있을 때 H5~H6 */
+.markdown-preview-view :is(p, ul, ol, blockquote, table, pre, .callout) + h5,
+.markdown-rendered :is(p, ul, ol, blockquote, table, pre, .callout) + h5,
+.markdown-preview-view :is(p, ul, ol, blockquote, table, pre, .callout) + h6,
+.markdown-rendered :is(p, ul, ol, blockquote, table, pre, .callout) + h6 {
+  margin-top: var(--jc-heading-space-small) !important;
+}
+
+/* Live Preview: 위에 내용이 있을 때 H1~H2 */
+.markdown-source-view.mod-cm6 .cm-line + .HyperMD-header-1,
+.markdown-source-view.mod-cm6 .cm-line + .HyperMD-header-2 {
+  padding-top: var(--jc-heading-space-large) !important;
+}
+
+/* Live Preview: 위에 내용이 있을 때 H3~H4 */
+.markdown-source-view.mod-cm6 .cm-line + .HyperMD-header-3,
+.markdown-source-view.mod-cm6 .cm-line + .HyperMD-header-4 {
+  padding-top: var(--jc-heading-space-medium) !important;
+}
+
+/* Live Preview: 위에 내용이 있을 때 H5~H6 */
+.markdown-source-view.mod-cm6 .cm-line + .HyperMD-header-5,
+.markdown-source-view.mod-cm6 .cm-line + .HyperMD-header-6 {
+  padding-top: var(--jc-heading-space-small) !important;
+}
+
+/* 연속 Heading 간격 축소 */
+.markdown-preview-view h1 + h2,
+.markdown-rendered h1 + h2,
+.markdown-preview-view h2 + h3,
+.markdown-rendered h2 + h3,
+.markdown-preview-view h3 + h4,
+.markdown-rendered h3 + h4,
+.markdown-preview-view h4 + h5,
+.markdown-rendered h4 + h5,
+.markdown-preview-view h5 + h6,
+.markdown-rendered h5 + h6 {
+  margin-top: 0.25em !important;
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-header + .HyperMD-header {
+  padding-top: 0.25em !important;
+}
+
+/* Reading View 첫 H1 상단 여백 */
+.markdown-preview-view .markdown-preview-section > h1:first-child,
+.markdown-rendered .markdown-preview-section > h1:first-child,
+.markdown-preview-view h1:first-child,
+.markdown-rendered h1:first-child {
+  margin-top: 1.2em !important;
+}
+
+
+/* =========================================================
+   08. Heading Decoration
+   ========================================================= */
+
+/* H1: 끝까지 이어지는 부드러운 밑줄 */
+.markdown-preview-view h1,
+.markdown-rendered h1,
+.markdown-source-view.mod-cm6 .HyperMD-header-1 {
+  position: relative !important;
+  display: block !important;
+  padding-bottom: var(--jc-heading-line-gap) !important;
+  border-bottom: var(--jc-heading-line-thickness) solid var(--jc-heading-line-soft) !important;
+}
+
+/* H2: 점점 옅어지는 밑줄 */
+.markdown-preview-view h2,
+.markdown-rendered h2,
+.markdown-source-view.mod-cm6 .HyperMD-header-2 {
+  position: relative !important;
+  display: block !important;
+  padding-bottom: var(--jc-heading-line-gap) !important;
+  border-bottom: none !important;
+}
+
+.markdown-preview-view h2::after,
+.markdown-rendered h2::after,
+.markdown-source-view.mod-cm6 .HyperMD-header-2::after {
+  content: "" !important;
+  display: block !important;
+  width: 100% !important;
+  height: var(--jc-heading-line-thickness) !important;
+  margin-top: var(--jc-heading-line-gap) !important;
+  background: linear-gradient(
+    to right,
+    var(--jc-heading-line-fade) 0%,
+    rgba(143, 178, 255, 0.22) 35%,
+    var(--jc-heading-line-fade-end) 100%
+  ) !important;
+}
+
+
+/* =========================================================
+   09. Tag
+   ========================================================= */
+
+/* Reading View */
+.markdown-rendered a.tag,
+.markdown-rendered a.tag[href^="#"],
+.markdown-preview-view a.tag,
+.markdown-preview-view a.tag[href^="#"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+
+  margin: 0 var(--jc-tag-gap) 0 0 !important;
+  padding: var(--jc-tag-padding-y) var(--jc-tag-padding-x) !important;
+
+  color: var(--jc-tag-text) !important;
+  background-color: var(--jc-tag-bg) !important;
+  border: 0 !important;
+  border-radius: var(--jc-tag-radius) !important;
+
+  font-family: var(--font-interface) !important;
+  font-size: var(--jc-tag-font-size) !important;
+  font-weight: 700 !important;
+  line-height: var(--jc-tag-line-height) !important;
+  letter-spacing: 0.02em !important;
+
+  text-decoration: none !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+}
+
+/* Live Preview */
+.markdown-source-view.mod-cm6 .cm-hashtag,
+.markdown-source-view.mod-cm6 .cm-formatting-hashtag,
+.markdown-source-view.mod-cm6 .cm-hashtag-begin,
+.markdown-source-view.mod-cm6 .cm-hashtag-end,
+.cm-s-obsidian span.cm-hashtag,
+.cm-s-obsidian span.cm-formatting-hashtag,
+.cm-s-obsidian span.cm-hashtag-begin,
+.cm-s-obsidian span.cm-hashtag-end {
+  box-sizing: border-box !important;
+
+  color: var(--jc-tag-text) !important;
+  background-color: var(--jc-tag-bg) !important;
+
+  font-family: var(--font-interface) !important;
+  font-size: var(--jc-tag-font-size) !important;
+  font-weight: 700 !important;
+  line-height: var(--jc-tag-line-height) !important;
+  letter-spacing: 0.02em !important;
+
+  text-decoration: none !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+}
+
+/* Live Preview: # 부분 */
+.markdown-source-view.mod-cm6 .cm-formatting-hashtag,
+.markdown-source-view.mod-cm6 .cm-hashtag-begin,
+.cm-s-obsidian span.cm-formatting-hashtag,
+.cm-s-obsidian span.cm-hashtag-begin {
+  padding: var(--jc-tag-padding-y) 1px var(--jc-tag-padding-y) var(--jc-tag-padding-x) !important;
+  border-radius: var(--jc-tag-radius) 0 0 var(--jc-tag-radius) !important;
+}
+
+/* Live Preview: 태그명 부분 */
+.markdown-source-view.mod-cm6 .cm-hashtag-end,
+.cm-s-obsidian span.cm-hashtag-end {
+  padding: var(--jc-tag-padding-y) var(--jc-tag-padding-x) var(--jc-tag-padding-y) 1px !important;
+  margin-right: var(--jc-tag-gap) !important;
+  border-radius: 0 var(--jc-tag-radius) var(--jc-tag-radius) 0 !important;
+}
+
+/* Live Preview: 하나의 span으로 잡히는 경우 */
+.markdown-source-view.mod-cm6 .cm-hashtag:not(.cm-hashtag-begin):not(.cm-hashtag-end),
+.cm-s-obsidian span.cm-hashtag:not(.cm-hashtag-begin):not(.cm-hashtag-end) {
+  padding: var(--jc-tag-padding-y) var(--jc-tag-padding-x) !important;
+  margin-right: var(--jc-tag-gap) !important;
+  border-radius: var(--jc-tag-radius) !important;
+}
+
+/* Hover */
+.markdown-rendered a.tag:hover,
+.markdown-preview-view a.tag:hover,
+.markdown-source-view.mod-cm6 .cm-hashtag:hover,
+.markdown-source-view.mod-cm6 .cm-formatting-hashtag:hover,
+.markdown-source-view.mod-cm6 .cm-hashtag-begin:hover,
+.markdown-source-view.mod-cm6 .cm-hashtag-end:hover {
+  color: var(--jc-tag-text) !important;
+  background-color: var(--jc-tag-bg-hover) !important;
+}
+
+
+/* =========================================================
+   10. Callout
+   ========================================================= */
+
+.markdown-preview-view .callout,
+.markdown-rendered .callout,
+.markdown-source-view.mod-cm6 .callout {
+  margin-top: 0.85em !important;
+  margin-bottom: 0.85em !important;
+  padding: 0 !important;
+
+  background-color: var(--jc-callout-bg) !important;
+  border: 1px solid var(--jc-callout-border) !important;
+  border-radius: 8px !important;
+
+  box-shadow: none !important;
+}
+
+/* 모든 콜아웃 색상 통일 */
+.callout[data-callout] {
+  --callout-color: 143, 178, 255 !important;
+  background-color: var(--jc-callout-bg) !important;
+  border-color: var(--jc-callout-border) !important;
+}
+
+.callout-title {
+  padding: 0.9em 1em 0.45em 1em !important;
+  color: var(--jc-callout-title) !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+}
+
+.callout-icon,
+.callout-title-icon {
+  color: var(--jc-callout-icon) !important;
+  opacity: 0.85 !important;
+}
+
+.callout-title-inner {
+  color: var(--jc-callout-title) !important;
+}
+
+.callout-content {
+  padding: 0.2em 1em 0.95em 1em !important;
+  color: var(--jc-callout-text) !important;
+  line-height: var(--jc-body-line-height) !important;
+}
+
+.callout-content p {
+  margin-top: 0.25em !important;
+  margin-bottom: 0.25em !important;
+}
+
+
+/* =========================================================
+   11. Table
+   ========================================================= */
+
+.markdown-preview-view table,
+.markdown-preview-view th,
+.markdown-preview-view td,
+.cm-table-widget {
+  color: var(--text-normal) !important;
+}
+
+.markdown-preview-view th {
+  color: #eef2f8 !important;
+  font-weight: 600 !important;
+}
+
+
+/* =========================================================
+   12. Sidebar
+   ========================================================= */
+
+.nav-files-container,
+.nav-folder,
+.nav-file,
+.nav-folder-title,
+.nav-file-title,
+.nav-folder-title-content,
+.nav-file-title-content {
+  color: var(--jc-sidebar-text) !important;
+}
+
+.nav-folder-title,
+.nav-folder-title-content {
+  color: var(--jc-sidebar-folder-text) !important;
+  font-weight: 500 !important;
+}
+
+.nav-file-title,
+.nav-file-title-content {
+  color: var(--jc-sidebar-text) !important;
+  font-weight: 400 !important;
+}
+
+.nav-folder-collapse-indicator,
+.tree-item-icon,
+.collapse-icon {
+  color: var(--jc-sidebar-muted) !important;
+}
+
+.nav-folder-title:hover,
+.nav-file-title:hover,
+.nav-folder-title:hover .nav-folder-title-content,
+.nav-file-title:hover .nav-file-title-content {
+  color: var(--jc-sidebar-text-hover) !important;
+}
+
+.nav-file-title.is-active,
+.nav-file-title.is-active .nav-file-title-content {
+  color: var(--jc-sidebar-text-active) !important;
+  font-weight: 600 !important;
+}
+
+.nav-file-title.is-active {
+  background-color: var(--background-modifier-hover) !important;
+}
+
+
+/* =========================================================
+   13. Sub Word
+   - Templater:
+   - <span class="sub-word"><% tp.file.selection() %></span>
+   ========================================================= */
+
+.markdown-preview-view .sub-word,
+.markdown-rendered .sub-word,
+.markdown-source-view.mod-cm6 .cm-html-embed .sub-word,
+.markdown-source-view.mod-cm6 .sub-word,
+.cm-s-obsidian .sub-word {
+  color: var(--jc-sub-word-color) !important;
+  font-size: var(--jc-sub-word-font-size) !important;
+  font-weight: var(--jc-sub-word-font-weight) !important;
+  opacity: var(--jc-sub-word-opacity) !important;
+  vertical-align: baseline !important;
+}
+
+/* =========================================================
+   14. Spacing Balance Patch
+   - Tag 다음 Heading 간격 보정
+   - Heading 다음 리스트 간격 보정
+   - Live Preview / Reading View 차이 완화
+   ========================================================= */
+
+body {
+  /* 태그 라인 다음 Heading 간격 */
+  --jc-space-tags-to-heading-reading: 0.95em;
+  --jc-space-tags-to-heading-live: 0.75em;
+
+  /* Heading 다음 일반 본문/리스트 간격 */
+  --jc-space-heading-to-content: 0.35em;
+  --jc-space-heading-to-list: 0.28em;
+}
+
+/* =========================================================
+   Reading View
+   ========================================================= */
+
+/* 태그가 들어 있는 문단 */
+.markdown-preview-view p:has(a.tag),
+.markdown-rendered p:has(a.tag) {
+  margin-top: 0.25em !important;
+  margin-bottom: 0 !important;
+}
+
+/* 태그 문단 다음 H1~H4 간격 확보 */
+.markdown-preview-view p:has(a.tag) + h1,
+.markdown-rendered p:has(a.tag) + h1,
+.markdown-preview-view p:has(a.tag) + h2,
+.markdown-rendered p:has(a.tag) + h2,
+.markdown-preview-view p:has(a.tag) + h3,
+.markdown-rendered p:has(a.tag) + h3,
+.markdown-preview-view p:has(a.tag) + h4,
+.markdown-rendered p:has(a.tag) + h4 {
+  margin-top: var(--jc-space-tags-to-heading-reading) !important;
+}
+
+/* Heading 바로 다음 문단은 너무 벌어지지 않게 */
+.markdown-preview-view h1 + p,
+.markdown-rendered h1 + p,
+.markdown-preview-view h2 + p,
+.markdown-rendered h2 + p,
+.markdown-preview-view h3 + p,
+.markdown-rendered h3 + p,
+.markdown-preview-view h4 + p,
+.markdown-rendered h4 + p,
+.markdown-preview-view h5 + p,
+.markdown-rendered h5 + p,
+.markdown-preview-view h6 + p,
+.markdown-rendered h6 + p {
+  margin-top: var(--jc-space-heading-to-content) !important;
+}
+
+/* Heading 바로 다음 리스트 간격 축소 */
+.markdown-preview-view h1 + ul,
+.markdown-rendered h1 + ul,
+.markdown-preview-view h2 + ul,
+.markdown-rendered h2 + ul,
+.markdown-preview-view h3 + ul,
+.markdown-rendered h3 + ul,
+.markdown-preview-view h4 + ul,
+.markdown-rendered h4 + ul,
+.markdown-preview-view h5 + ul,
+.markdown-rendered h5 + ul,
+.markdown-preview-view h6 + ul,
+.markdown-rendered h6 + ul,
+.markdown-preview-view h1 + ol,
+.markdown-rendered h1 + ol,
+.markdown-preview-view h2 + ol,
+.markdown-rendered h2 + ol,
+.markdown-preview-view h3 + ol,
+.markdown-rendered h3 + ol,
+.markdown-preview-view h4 + ol,
+.markdown-rendered h4 + ol,
+.markdown-preview-view h5 + ol,
+.markdown-rendered h5 + ol,
+.markdown-preview-view h6 + ol,
+.markdown-rendered h6 + ol {
+  margin-top: var(--jc-space-heading-to-list) !important;
+}
+
+/* 리스트 자체의 위아래 여백 축소 */
+.markdown-preview-view ul,
+.markdown-rendered ul,
+.markdown-preview-view ol,
+.markdown-rendered ol {
+  margin-top: 0.25em !important;
+  margin-bottom: 0.45em !important;
+}
+
+/* 리스트 아이템 간격 */
+.markdown-preview-view li,
+.markdown-rendered li {
+  margin-top: 0.08em !important;
+  margin-bottom: 0.08em !important;
+}
+
+/* =========================================================
+   Live Preview
+   ========================================================= */
+
+/* 태그 라인 바로 다음 Heading 간격 축소 */
+.markdown-source-view.mod-cm6 .cm-line:has(.cm-hashtag) + .HyperMD-header-1,
+.markdown-source-view.mod-cm6 .cm-line:has(.cm-hashtag) + .HyperMD-header-2,
+.markdown-source-view.mod-cm6 .cm-line:has(.cm-hashtag) + .HyperMD-header-3,
+.markdown-source-view.mod-cm6 .cm-line:has(.cm-hashtag) + .HyperMD-header-4 {
+  padding-top: var(--jc-space-tags-to-heading-live) !important;
+}
+
+/* Heading 바로 다음 일반 라인 간격 */
+.markdown-source-view.mod-cm6 .HyperMD-header + .cm-line:not(.HyperMD-header) {
+  padding-top: var(--jc-space-heading-to-content) !important;
+}
+
+/* Heading 바로 다음 리스트 간격 축소 */
+.markdown-source-view.mod-cm6 .HyperMD-header + .HyperMD-list-line,
+.markdown-source-view.mod-cm6 .HyperMD-header + .cm-line.HyperMD-list-line {
+  padding-top: var(--jc-space-heading-to-list) !important;
+}
+
+/* 리스트 라인 간격 과도 확대 방지 */
+.markdown-source-view.mod-cm6 .HyperMD-list-line {
+  padding-top: 0.04em !important;
+  padding-bottom: 0.04em !important;
+}
+
+
+/* =========================================================
+   15. Live Preview Heading Size Fix
+   - Live Preview Heading 글자크기를 Reading View 기준으로 보정
+   ========================================================= */
+
+body {
+  --jc-live-h1-size: 1.38em;
+  --jc-live-h2-size: 1.24em;
+  --jc-live-h3-size: 1.12em;
+  --jc-live-h4-size: 1.02em;
+  --jc-live-h5-size: 0.94em;
+  --jc-live-h6-size: 0.82em;
+}
+
+/* Live Preview H1 */
+.markdown-source-view.mod-cm6 .HyperMD-header-1,
+.markdown-source-view.mod-cm6 .cm-header-1 {
+  font-size: var(--jc-live-h1-size) !important;
+}
+
+/* Live Preview H2 */
+.markdown-source-view.mod-cm6 .HyperMD-header-2,
+.markdown-source-view.mod-cm6 .cm-header-2 {
+  font-size: var(--jc-live-h2-size) !important;
+}
+
+/* Live Preview H3 */
+.markdown-source-view.mod-cm6 .HyperMD-header-3,
+.markdown-source-view.mod-cm6 .cm-header-3 {
+  font-size: var(--jc-live-h3-size) !important;
+}
+
+/* Live Preview H4 */
+.markdown-source-view.mod-cm6 .HyperMD-header-4,
+.markdown-source-view.mod-cm6 .cm-header-4 {
+  font-size: var(--jc-live-h4-size) !important;
+}
+
+/* Live Preview H5 */
+.markdown-source-view.mod-cm6 .HyperMD-header-5,
+.markdown-source-view.mod-cm6 .cm-header-5 {
+  font-size: var(--jc-live-h5-size) !important;
+}
+
+/* Live Preview H6 */
+.markdown-source-view.mod-cm6 .HyperMD-header-6,
+.markdown-source-view.mod-cm6 .cm-header-6 {
+  font-size: var(--jc-live-h6-size) !important;
+}
+
+/* =========================================================
+   Reading View Tag Line Bottom Spacing Fix
+   - Reading View에서 태그 라인과 첫 Heading이 붙는 문제 보정
+   ========================================================= */
+
+body {
+  --jc-reading-tag-line-bottom-space: 1.05em;
+}
+
+/* Reading View: 태그가 포함된 문단 자체에 아래 여백 부여 */
+.markdown-preview-view p:has(.tag),
+.markdown-rendered p:has(.tag),
+.markdown-preview-view p:has(a.tag),
+.markdown-rendered p:has(a.tag) {
+  margin-top: 0.25em !important;
+  margin-bottom: var(--jc-reading-tag-line-bottom-space) !important;
+}
+
+/* Reading View: 태그 다음 첫 Heading이 너무 위로 붙지 않도록 보정 */
+.markdown-preview-view p:has(.tag) + h1,
+.markdown-rendered p:has(.tag) + h1,
+.markdown-preview-view p:has(.tag) + h2,
+.markdown-rendered p:has(.tag) + h2,
+.markdown-preview-view p:has(.tag) + h3,
+.markdown-rendered p:has(.tag) + h3,
+.markdown-preview-view p:has(.tag) + h4,
+.markdown-rendered p:has(.tag) + h4 {
+  margin-top: 0 !important;
+}
+
+/* Reading View: 문서 상단 태그 영역 다음 Heading 보정 */
+.markdown-preview-view .mod-header + h1,
+.markdown-preview-view .mod-header + h2,
+.markdown-rendered .mod-header + h1,
+.markdown-rendered .mod-header + h2 {
+  margin-top: var(--jc-reading-tag-line-bottom-space) !important;
+}
+
+/* =========================================================
+   Live Preview Tag → Heading Spacing Fine Tune
+   - Live Preview에서 태그 라인과 첫 Heading 간격을 조금 줄임
+   ========================================================= */
+
+body {
+  --jc-live-tag-to-heading-space: 0.1em;
+}
+
+/* Live Preview: 태그가 있는 라인 바로 다음 Heading 간격 축소 */
+.markdown-source-view.mod-cm6 .cm-line:has(.cm-hashtag) + .HyperMD-header-1,
+.markdown-source-view.mod-cm6 .cm-line:has(.cm-hashtag) + .HyperMD-header-2,
+.markdown-source-view.mod-cm6 .cm-line:has(.cm-hashtag) + .HyperMD-header-3,
+.markdown-source-view.mod-cm6 .cm-line:has(.cm-hashtag) + .HyperMD-header-4 {
+  padding-top: var(--jc-live-tag-to-heading-space) !important;
+}
+
+/* =========================================================
+   Live Preview Heading Top Spacing Fine Tune
+   - Live Preview에서 Heading 위 간격을 조금 줄임
+   - 태그 다음 Heading에도 적용
+   ========================================================= */
+
+body {
+  --jc-live-heading-space-large: 0.75em;   /* H1~H2 */
+  --jc-live-heading-space-medium: 0.55em;  /* H3~H4 */
+  --jc-live-heading-space-small: 0.35em;   /* H5~H6 */
+}
+
+/* Live Preview H1~H2 위 간격 축소 */
+.markdown-source-view.mod-cm6 .HyperMD-header-1,
+.markdown-source-view.mod-cm6 .HyperMD-header-2 {
+  padding-top: var(--jc-live-heading-space-large) !important;
+}
+
+/* Live Preview H3~H4 위 간격 축소 */
+.markdown-source-view.mod-cm6 .HyperMD-header-3,
+.markdown-source-view.mod-cm6 .HyperMD-header-4 {
+  padding-top: var(--jc-live-heading-space-medium) !important;
+}
+
+/* Live Preview H5~H6 위 간격 축소 */
+.markdown-source-view.mod-cm6 .HyperMD-header-5,
+.markdown-source-view.mod-cm6 .HyperMD-header-6 {
+  padding-top: var(--jc-live-heading-space-small) !important;
+}
+
+/* 연속 Heading은 여전히 좁게 유지 */
+.markdown-source-view.mod-cm6 .HyperMD-header + .HyperMD-header {
+  padding-top: 0.25em !important;
+}
+
+/* =========================================================
+   Live Preview Tag 다음 빈 줄 간격 축소
+   - 태그 라인과 Heading 사이에 있는 빈 줄 높이 축소
+   ========================================================= */
+
+body {
+  --jc-live-empty-line-after-tag-height: 0.25em;
+}
+
+/* 태그 라인 바로 다음 빈 줄 축소 */
+.markdown-source-view.mod-cm6 .cm-line:has(.cm-hashtag) + .cm-line {
+  line-height: var(--jc-live-empty-line-after-tag-height) !important;
+  min-height: var(--jc-live-empty-line-after-tag-height) !important;
+  height: var(--jc-live-empty-line-after-tag-height) !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* 태그 라인 + 빈 줄 + Heading 구조일 때 Heading 위 간격도 축소 */
+.markdown-source-view.mod-cm6 .cm-line:has(.cm-hashtag) + .cm-line + .HyperMD-header-1,
+.markdown-source-view.mod-cm6 .cm-line:has(.cm-hashtag) + .cm-line + .HyperMD-header-2,
+.markdown-source-view.mod-cm6 .cm-line:has(.cm-hashtag) + .cm-line + .HyperMD-header-3,
+.markdown-source-view.mod-cm6 .cm-line:has(.cm-hashtag) + .cm-line + .HyperMD-header-4 {
+  padding-top: 0.35em !important;
+}
