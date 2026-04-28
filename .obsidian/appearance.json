@@ -7,7 +7,8 @@
   "enabledCssSnippets": [
     "minimal_custom",
     "claude-minimal-dark",
-    "minimal-dark-custom"
+    "minimal_dark_gpt",
+    "minimal_dark_gpt_v2"
   ],
   "monospaceFontFamily": "D2Coding",
   "interfaceFontFamily": "Pretendard"
