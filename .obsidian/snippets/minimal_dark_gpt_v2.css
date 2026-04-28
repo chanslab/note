@@ -927,7 +927,7 @@ body {
 /* 윗첨자 커스텀 스타일 */
 .sup-word {
     display: inline-block;
-    font-size: 0.65em;       /* 글자 크기: 본문의 65% */
+    font-size: 0.85em;       /* 글자 크기: 본문의 65% */
     vertical-align: baseline; /* 기준선을 바닥에 맞춤 */
     position: relative;
     top: -0.5em;            /* 위로 올리는 정도 */
