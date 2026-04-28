@@ -1,9 +1,11 @@
 [
   "calendar",
+  "periodic-notes",
   "obsidian-excalidraw-plugin",
   "obsidian-git",
   "obsidian-style-settings",
   "meld-encrypt",
+  "obsidian-minimal-settings",
   "templater-obsidian",
-  "obsidian-minimal-settings"
+  "highlightr-plugin"
 ]
