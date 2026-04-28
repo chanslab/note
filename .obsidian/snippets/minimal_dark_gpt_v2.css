@@ -569,16 +569,74 @@ body {
    11. Table
    ========================================================= */
 
-.markdown-preview-view table,
-.markdown-preview-view th,
-.markdown-preview-view td,
-.cm-table-widget {
-  color: var(--text-normal) !important;
+body {
+  --table-border-color: transparent !important;
+  --table-border-width: 0px !important;
+  --table-header-border-color: rgba(143, 178, 255, 0.45) !important;
+  --table-header-border-width: 1px !important;
+  /* 바디 셀 글씨 크기 축소 */
+  .markdown-preview-view td,
+  .markdown-source-view.mod-cm6 .cm-table-widget td {
+    font-size: 0.88em !important;
+  }  
 }
 
-.markdown-preview-view th {
-  color: #eef2f8 !important;
+.markdown-preview-view table,
+.markdown-source-view.mod-cm6 .cm-table-widget table {
+  border-collapse: collapse !important;
+  border: none !important;
+  width: 100% !important;
+}
+
+/* 모든 셀 — 외곽 테두리 제거, 행 구분선 + 세로 구분선 */
+.markdown-preview-view th,
+.markdown-preview-view td,
+.markdown-source-view.mod-cm6 .cm-table-widget th,
+.markdown-source-view.mod-cm6 .cm-table-widget td {
+  border: none !important;
+  border-bottom: 1px solid rgba(143, 178, 255, 0.15) !important;
+  border-right: 1px solid rgba(143, 178, 255, 0.15) !important;
+  padding: 0.5em 1em !important;
+}
+
+/* 각 행의 마지막 셀 — 오른쪽 세로선 제거 */
+.markdown-preview-view th:last-child,
+.markdown-preview-view td:last-child,
+.markdown-source-view.mod-cm6 .cm-table-widget th:last-child,
+.markdown-source-view.mod-cm6 .cm-table-widget td:last-child {
+  border-right: none !important;
+}
+
+/* 헤더 행 */
+.markdown-preview-view thead th,
+.markdown-source-view.mod-cm6 .cm-table-widget thead th {
+  text-align: center !important;
+  color: #c9dcf5 !important;
   font-weight: 600 !important;
+  font-size: 0.88em !important;
+  letter-spacing: 0.04em !important;
+  border-bottom: 1px solid rgba(143, 178, 255, 0.45) !important;
+  border-right: 1px solid rgba(143, 178, 255, 0.25) !important;
+  padding-bottom: 0.55em !important;
+  background-color: rgba(143, 178, 255, 0.08) !important;
+}
+
+/* 헤더 마지막 셀 세로선 제거 */
+.markdown-preview-view thead th:last-child,
+.markdown-source-view.mod-cm6 .cm-table-widget thead th:last-child {
+  border-right: none !important;
+}
+
+/* 마지막 행 구분선 제거 */
+.markdown-preview-view tbody tr:last-child td,
+.markdown-source-view.mod-cm6 .cm-table-widget tbody tr:last-child td {
+  border-bottom: none !important;
+}
+
+/* hover 시 행 하이라이트 */
+.markdown-preview-view tbody tr:hover td,
+.markdown-source-view.mod-cm6 .cm-table-widget tbody tr:hover td {
+  background-color: rgba(143, 178, 255, 0.06) !important;
 }
 
 
