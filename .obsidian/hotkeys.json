@@ -54,21 +54,5 @@
       ],
       "key": "S"
     }
-  ],
-  "templater-obsidian:Templates/sub.md": [
-    {
-      "modifiers": [
-        "Alt"
-      ],
-      "key": "1"
-    }
-  ],
-  "templater-obsidian:Templates/sup.md": [
-    {
-      "modifiers": [
-        "Alt"
-      ],
-      "key": "2"
-    }
   ]
 }

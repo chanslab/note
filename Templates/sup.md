@@ -1,1 +1,0 @@
-<span class="sup-word"><% tp.file.selection() %></span>
