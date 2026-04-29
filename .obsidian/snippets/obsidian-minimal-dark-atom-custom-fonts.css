@@ -18,8 +18,11 @@
    01. Web Fonts
    ========================================================= */
 
+/* 기본 본문 폰트 */
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
-@import url("https://cdn.jsdelivr.net/npm/@fontsource/monaspace-neon@latest/index.css");
+
+/* 코드 / 콜아웃 / 인용문 보조 폰트 */
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Nanum+Gothic+Coding:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Gowun+Dodum&family=Noto+Serif+KR:wght@400;500;600&display=swap");
 
 
 /* =========================================================
@@ -30,7 +33,18 @@ body {
   /* Font */
   --font-text: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-interface: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-monospace: "Monaspace Neon", "JetBrains Mono", "D2Coding", "SFMono-Regular", Consolas, monospace;
+
+  /* 코드 블록: 영문/기호는 JetBrains Mono, 한글 주석은 Nanum Gothic Coding으로 보완 */
+  --font-monospace: "JetBrains Mono", "Nanum Gothic Coding", "D2Coding", "SFMono-Regular", Consolas, monospace;
+
+  /* 콜아웃: 본문과 이질적이지 않으면서 기술 문서 느낌 */
+  --font-callout: "IBM Plex Sans KR", "Pretendard", "Apple SD Gothic Neo", sans-serif;
+
+  /* 인용문: 부드러운 인용문 느낌 */
+  --font-quote: "Gowun Dodum", "Pretendard", "Apple SD Gothic Neo", sans-serif;
+
+  /* 대안: 문헌/책 인용 느낌을 원하면 아래처럼 변경 가능 */
+  /* --font-quote: "Noto Serif KR", "Pretendard", serif; */
 
   /* Text */
   --text-normal: #d5dae3;
@@ -214,6 +228,8 @@ body {
 
 /* =========================================================
    05. Code Font
+   - Code Block / Inline Code
+   - Live Preview / Reading View 공통
    ========================================================= */
 
 .markdown-preview-view code,
@@ -221,16 +237,29 @@ body {
 .cm-inline-code,
 .HyperMD-codeblock,
 .markdown-rendered pre,
-.markdown-rendered code {
+.markdown-rendered code,
+.markdown-preview-view pre code,
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock {
   font-family: var(--font-monospace) !important;
-  /* Monaspace Neon: Texture Healing(calt) + 합자(liga) 활성화 */
-  font-feature-settings: "calt" 1, "liga" 1, "ss01" 1 !important;
+  font-feature-settings: "calt" 1, "liga" 1 !important;
 }
 
+/* 코드 블록 */
+.markdown-preview-view pre code,
+.markdown-rendered pre code,
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock {
+  font-size: 0.88em !important;
+  line-height: 1.55 !important;
+}
+
+/* 인라인 코드 */
 .markdown-preview-view :not(pre) > code,
-.cm-inline-code {
+.markdown-rendered :not(pre) > code,
+.cm-inline-code,
+.cm-s-obsidian span.cm-inline-code {
   color: var(--inline-code-color) !important;
-  font-size: 0.82em !important;
+  font-size: 0.84em !important;
+  font-family: var(--font-monospace) !important;
 }
 
 
@@ -522,6 +551,8 @@ body {
   margin-bottom: 0.85em !important;
   padding: 0 !important;
 
+  font-family: var(--font-callout) !important;
+
   background-color: var(--jc-callout-bg) !important;
   border: 1px solid var(--jc-callout-border) !important;
   border-radius: 8px !important;
@@ -564,6 +595,42 @@ body {
   margin-bottom: 0.25em !important;
 }
 
+
+
+.callout-title,
+.callout-title-inner,
+.callout-content {
+  font-family: var(--font-callout) !important;
+}
+
+
+/* =========================================================
+   10-1. Blockquote Font
+   - Reading View / Live Preview 공통
+   ========================================================= */
+
+/* Reading View */
+.markdown-preview-view blockquote,
+.markdown-rendered blockquote {
+  font-family: var(--font-quote) !important;
+  line-height: 1.65 !important;
+  color: var(--text-normal) !important;
+}
+
+/* Reading View: 인용문 내부 문단 */
+.markdown-preview-view blockquote p,
+.markdown-rendered blockquote p {
+  font-family: var(--font-quote) !important;
+  line-height: 1.65 !important;
+}
+
+/* Live Preview */
+.markdown-source-view.mod-cm6 .HyperMD-quote,
+.markdown-source-view.mod-cm6 .cm-quote {
+  font-family: var(--font-quote) !important;
+  line-height: 1.65 !important;
+  color: var(--text-normal) !important;
+}
 
 /* =========================================================
    11. Table
