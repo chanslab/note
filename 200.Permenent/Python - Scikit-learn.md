@@ -1,3 +1,6 @@
+#Python #Scikit-learn #matplotlib #scatter
+
+
 ## 분류 (<span class="sub-word">Classification</span>)
 여러 개의 종류 혹은 클래스(<span class="sub-word">class</span>) 중 하나를 구별해 내는 문제
 2개의 클래스 중 하나를 고르는 문제는 **이진 분류(binary classification)** 

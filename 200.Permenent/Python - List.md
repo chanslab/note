@@ -1,5 +1,14 @@
 #python #List #자료구조
 
+## LIST의 특징
+### 1. 순서가 있음
+### 2. 변경 가능(Mutable)
+### 3. 중복 허용(Mutable)
+### 2. 변경 가능(Mutable)
+### 2. 변경 가능(Mutable)
+### 2. 변경 가능(Mutable)
+
+
 ## Python 리스트(List)의 특징
 ### 1. 순서가 있는 자료구조 (Ordered)
 리스트는 요소들이 **삽입된 순서를 유지**
